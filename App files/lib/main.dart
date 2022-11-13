@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import './settings.dart';
+import './home.dart';
+
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
@@ -24,28 +27,27 @@ class MyStatefulWidget extends StatefulWidget {
 }
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+  String _navigationTitle = 'Insights';
   int _selectedIndex = 0;
+  static const TextStyle appBarStyle =
+      TextStyle(fontSize: 35, fontWeight: FontWeight.bold, color: Colors.black);
   static const TextStyle optionStyle =
-  TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
     Text(
       'Index 0: Home',
       style: optionStyle,
     ),
     Text(
-      'Index 1: Remote Control',
+      'Index 1: History / Projection',
       style: optionStyle,
     ),
     Text(
-      'Index 2: Consumption',
+      'Index 2: Remote',
       style: optionStyle,
     ),
     Text(
-      'Index 3: Forecast',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 4: Settings',
+      'Index 3: Notifications',
       style: optionStyle,
     ),
   ];
@@ -53,14 +55,50 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
+      switch (index) {
+        case 0: { _navigationTitle = 'Insights'; }
+          break;
+        case 1: { _navigationTitle = 'Evolution'; }
+          break;
+        case 2: { _navigationTitle = 'Remote'; }
+          break;
+        case 3: { _navigationTitle = 'Notifications'; }
+          break;
+      }
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Water Efficiency Tool'),
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(100),
+        child: AppBar(
+          title: Text(
+            _navigationTitle,
+            style: appBarStyle,
+          ),
+          backgroundColor: Colors.transparent,
+          centerTitle: true,
+          elevation: 0,
+          toolbarHeight: 100.0,
+          actions: <Widget>[
+            IconButton(
+                icon: const Icon(Icons.settings, color: Colors.grey),
+                tooltip: 'Settings button',
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute<void>(
+                    builder: (BuildContext context) {
+                      return Scaffold(
+                          appBar: AppBar(
+                            title: const Text('Settings'),
+                          ),
+                          body: Settings());
+                    },
+                  ));
+                }),
+          ],
+        ),
       ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
@@ -73,20 +111,16 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings_remote),
-            label: 'Remote',
-          ),
-          BottomNavigationBarItem(
             icon: Icon(Icons.bar_chart),
             label: 'Consumption',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.water_drop),
-            label: 'Forecast',
+            icon: Icon(Icons.settings_remote),
+            label: 'Remote',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
+            icon: Icon(Icons.notifications),
+            label: 'Notifications',
           ),
         ],
         currentIndex: _selectedIndex,
