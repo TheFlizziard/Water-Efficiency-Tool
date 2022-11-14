@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import './settings.dart';
 import './home.dart';
+import './notifications_page.dart';
+import './notifications.dart';
 
 void main() => runApp(const MyApp());
 
@@ -33,22 +35,22 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       TextStyle(fontSize: 35, fontWeight: FontWeight.bold, color: Colors.black);
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
+  static final List<Widget> _widgetOptions = <Widget>[
+    const Text(
       'Index 0: Home',
       style: optionStyle,
     ),
-    Text(
+    const Text(
       'Index 1: History / Projection',
       style: optionStyle,
     ),
-    Text(
+    const Text(
       'Index 2: Remote',
       style: optionStyle,
     ),
-    Text(
-      'Index 3: Notifications',
-      style: optionStyle,
+    Scaffold(
+      body: NotificationsManager(),
+      //style: optionStyle,
     ),
   ];
 
@@ -56,13 +58,26 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     setState(() {
       _selectedIndex = index;
       switch (index) {
-        case 0: { _navigationTitle = 'Insights'; }
+        case 0:
+          {
+            _navigationTitle = 'Insights';
+          }
           break;
-        case 1: { _navigationTitle = 'Evolution'; }
+        case 1:
+          {
+            _navigationTitle = 'Evolution';
+          }
           break;
-        case 2: { _navigationTitle = 'Remote'; }
+        case 2:
+          {
+            _navigationTitle = 'Remote';
+          }
           break;
-        case 3: { _navigationTitle = 'Notifications'; }
+        case 3:
+          {
+            _navigationTitle = 'Notifications';
+            NotificationsManager();
+          }
           break;
       }
     });
@@ -84,7 +99,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           toolbarHeight: 100.0,
           actions: <Widget>[
             IconButton(
-                icon: const Icon(Icons.settings, color: Colors.grey),
+                icon: const Icon(Icons. settings, color: Colors.grey),
                 tooltip: 'Settings button',
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute<void>(
@@ -93,7 +108,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                           appBar: AppBar(
                             title: const Text('Settings'),
                           ),
-                          body: Settings());
+                          body: const InfoField());
                     },
                   ));
                 }),
