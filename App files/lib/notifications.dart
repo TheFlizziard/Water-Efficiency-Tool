@@ -15,9 +15,10 @@ class Notifications extends StatelessWidget {
             (element) => Card(
               child: Column(
                 children: [
-                  Text(element, style: optionStyle,),
+                  Text(element, style: optionStyle,)
                 ],
               ),
+
             ),
           )
           .toList(),

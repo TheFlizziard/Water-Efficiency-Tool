@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
-
 import './settings.dart';
 import './home.dart';
 import './notifications_page.dart';
 import './notifications.dart';
+import './remote_page.dart';
+import './consumption_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -17,21 +18,19 @@ class _HomePage extends State<HomePage> {
   String _navigationTitle = 'Insights';
   int _selectedIndex = 0;
   static const TextStyle appBarStyle =
-  TextStyle(fontSize: 35, fontWeight: FontWeight.bold, color: Colors.black);
+      TextStyle(fontSize: 35, fontWeight: FontWeight.bold, color: Colors.black);
   static const TextStyle optionStyle =
-  TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static final List<Widget> _widgetOptions = <Widget>[
     const Text(
       'Index 0: Home',
       style: optionStyle,
     ),
-    const Text(
-      'Index 1: History / Projection',
-      style: optionStyle,
+    Scaffold(
+      body: ChartManager(),
     ),
-    const Text(
-      'Index 2: Remote',
-      style: optionStyle,
+    Scaffold(
+      body: HolidaySwitch(),
     ),
     Scaffold(
       body: NotificationsManager(),
@@ -61,7 +60,6 @@ class _HomePage extends State<HomePage> {
         case 3:
           {
             _navigationTitle = 'Notifications';
-            NotificationsManager();
           }
           break;
       }
@@ -84,7 +82,7 @@ class _HomePage extends State<HomePage> {
           toolbarHeight: 100.0,
           actions: <Widget>[
             IconButton(
-                icon: const Icon(Icons. settings, color: Colors.grey),
+                icon: const Icon(Icons.settings, color: Colors.grey),
                 tooltip: 'Settings button',
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute<void>(

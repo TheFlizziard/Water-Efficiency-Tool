@@ -12,6 +12,9 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   static const String _title = 'Water Efficiency Tool';
+  static const String name = '';
+  static const String address = '';
+  static bool remoteStatus = false;
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +38,7 @@ class _LoginManagerState extends State<LoginManager> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text("Login Page"),
+        automaticallyImplyLeading: false,
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -51,7 +55,7 @@ class _LoginManagerState extends State<LoginManager> {
                     child: Image.asset('./asset/images/hanyang.png')),
               ),
             ),
-            Padding(
+            const Padding(
               //padding: const EdgeInsets.only(left:15.0,right: 15.0,top:0,bottom: 0),
               padding: EdgeInsets.symmetric(horizontal: 15),
               child: TextField(
@@ -61,8 +65,8 @@ class _LoginManagerState extends State<LoginManager> {
                     hintText: 'Enter valid email id as abc@gmail.com'),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(
+            const Padding(
+              padding: EdgeInsets.only(
                   left: 15.0, right: 15.0, top: 15, bottom: 0),
               //padding: EdgeInsets.symmetric(horizontal: 15),
               child: TextField(
@@ -78,7 +82,7 @@ class _LoginManagerState extends State<LoginManager> {
               onPressed: (){
                 //TODO FORGOT PASSWORD SCREEN GOES HERE
               },
-              child: Text(
+              child: const Text(
                 'Forgot Password',
                 style: TextStyle(color: Colors.blue, fontSize: 15),
               ),
@@ -93,16 +97,16 @@ class _LoginManagerState extends State<LoginManager> {
                   Navigator.push(
                       context, MaterialPageRoute(builder: (_) => HomePage()));
                 },
-                child: Text(
+                child: const Text(
                   'Login',
                   style: TextStyle(color: Colors.white, fontSize: 25),
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 130,
             ),
-            Text('New User? Create Account')
+            const Text('New User? Create Account')
           ],
         ),
       ),
