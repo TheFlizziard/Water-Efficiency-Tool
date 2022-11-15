@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import './main.dart';
+
 class InfoField extends StatelessWidget {
   const InfoField({super.key});
 
@@ -58,6 +60,10 @@ class InfoField extends StatelessWidget {
                     ),
                   );
                   ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginManager()),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.red, // background

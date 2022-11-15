@@ -48,7 +48,7 @@ class _LoginManagerState extends State<LoginManager> {
                     /*decoration: BoxDecoration(
                         color: Colors.red,
                         borderRadius: BorderRadius.circular(50.0)),*/
-                    child: Image.asset('../asset/images/hanyang.png')),
+                    child: Image.asset('./asset/images/hanyang.png')),
               ),
             ),
             Padding(
