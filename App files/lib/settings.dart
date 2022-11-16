@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import './main.dart';
 
+//TODO Add scrolling function
+
 class InfoField extends StatelessWidget {
   const InfoField({super.key});
 
@@ -17,6 +19,7 @@ class InfoField extends StatelessWidget {
               border: UnderlineInputBorder(),
               labelText: 'Name',
             ),
+            initialValue: MyApp.name,
           ),
         ),
         Padding(
@@ -26,6 +29,7 @@ class InfoField extends StatelessWidget {
               border: UnderlineInputBorder(),
               labelText: 'Address',
             ),
+            initialValue: MyApp.address,
           ),
         ),
         Padding(
@@ -40,9 +44,29 @@ class InfoField extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 50),
           child: TextFormField(
             decoration: const InputDecoration(
-              border: UnderlineInputBorder(),
-              labelText: 'Monthly goal (13,000 liters by default)',
-            ),
+                border: UnderlineInputBorder(),
+                labelText: 'Monthly goal',
+                helperText: 'By default: 13,000 liters'),
+            initialValue: "13,000",
+          ),
+        ),
+        Center(
+          child: Container(
+            margin: const EdgeInsets.all(5.0),
+            child: ElevatedButton(
+                onPressed: () {
+                  const snackBar = SnackBar(
+                    content: Text(
+                        'Your changes have been successfully saved!'),
+                  );
+                  ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                  //TODO SAVING CHANGES
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blue, // background
+                  foregroundColor: Colors.white, // foreground
+                ),
+                child: const Text('Save changes')),
           ),
         ),
         Center(
@@ -51,7 +75,8 @@ class InfoField extends StatelessWidget {
             child: ElevatedButton(
                 onPressed: () {
                   final snackBar = SnackBar(
-                    content: const Text('You successfully disconnected from the account!'),
+                    content: const Text(
+                        'You successfully disconnected from the account!'),
                     action: SnackBarAction(
                       label: 'Undo',
                       onPressed: () {
@@ -144,4 +169,3 @@ class DropdownMetrics extends StatelessWidget {
     return Center(child: DropdownButtonField(dropdownList: metricsList));
   }
 }
-
