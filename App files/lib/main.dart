@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:water_efficiency_tool/net/flutterfire.dart';
+import 'package:firebase_core/firebase_core.dart';
 import './settings.dart';
 import './home.dart';
 import './home_page.dart';
@@ -24,11 +25,16 @@ class MyApp extends StatelessWidget {
 }
 
 class LoginManager extends StatefulWidget {
+  LoginManager({Key? key}) : super(key: key);
+
   @override
   _LoginManagerState createState() => _LoginManagerState();
 }
 
 class _LoginManagerState extends State<LoginManager> {
+  TextEditingController _emailField = TextEditingController();
+  TextEditingController _passwordField = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,6 +61,7 @@ class _LoginManagerState extends State<LoginManager> {
               //padding: const EdgeInsets.only(left:15.0,right: 15.0,top:0,bottom: 0),
               padding: EdgeInsets.symmetric(horizontal: 15),
               child: TextField(
+                controller: _emailField,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Email',
@@ -66,8 +73,8 @@ class _LoginManagerState extends State<LoginManager> {
                   left: 15.0, right: 15.0, top: 15, bottom: 0),
               //padding: EdgeInsets.symmetric(horizontal: 15),
               child: TextField(
-
                 obscureText: true,
+                controller: _passwordField,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Password',
@@ -75,7 +82,7 @@ class _LoginManagerState extends State<LoginManager> {
               ),
             ),
             TextButton(
-              onPressed: (){
+              onPressed: () {
                 //TODO FORGOT PASSWORD SCREEN GOES HERE
               },
               child: Text(
@@ -89,9 +96,15 @@ class _LoginManagerState extends State<LoginManager> {
               decoration: BoxDecoration(
                   color: Colors.blue, borderRadius: BorderRadius.circular(20)),
               child: TextButton(
-                onPressed: () {
-                  Navigator.push(
-                      context, MaterialPageRoute(builder: (_) => HomePage()));
+                onPressed: () async {
+                  bool shouldNavigate =
+                      await signIn(_emailField.text, _passwordField.text);
+                  if (shouldNavigate) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => HomePage()),
+                    ); // Navigator
+                  }
                 },
                 child: Text(
                   'Login',
@@ -109,5 +122,3 @@ class _LoginManagerState extends State<LoginManager> {
     );
   }
 }
-
-
