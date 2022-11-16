@@ -48,11 +48,11 @@ class _LoginManagerState extends State<LoginManager> {
               child: Center(
                 child: Container(
                     width: 200,
-                    height: 150,
+                    height: 200,
                     /*decoration: BoxDecoration(
                         color: Colors.red,
                         borderRadius: BorderRadius.circular(50.0)),*/
-                    child: Image.asset('./asset/images/hanyang.png')),
+                    child: Image.asset('./asset/images/logo_wet.png')),
               ),
             ),
             const Padding(

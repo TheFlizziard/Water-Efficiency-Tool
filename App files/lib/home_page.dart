@@ -76,6 +76,7 @@ class _HomePage extends State<HomePage> {
             _navigationTitle,
             style: appBarStyle,
           ),
+          automaticallyImplyLeading: false,
           backgroundColor: Colors.transparent,
           centerTitle: true,
           elevation: 0,
