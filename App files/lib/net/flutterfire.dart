@@ -12,6 +12,8 @@ Future<bool> signIn(String email, String password) async {
   }
 }
 
+// FirebaseAuthException didn't work somehow
+
 // Future<bool> register(String email, String password) async {
 //   try {
 //     await FirebaseAuth.instance
