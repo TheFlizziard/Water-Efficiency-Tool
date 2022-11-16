@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:water_efficiency_tool/net/flutterfire.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'net/flutterfire.dart';
 import './settings.dart';
 import './home.dart';
 import './home_page.dart';
@@ -61,7 +62,7 @@ class _LoginManagerState extends State<LoginManager> {
                     child: Image.asset('./asset/images/logo_wet.png')),
               ),
             ),
-            const Padding(
+            Padding(
               //padding: const EdgeInsets.only(left:15.0,right: 15.0,top:0,bottom: 0),
               padding: EdgeInsets.symmetric(horizontal: 15),
               child: TextField(
@@ -72,9 +73,9 @@ class _LoginManagerState extends State<LoginManager> {
                     hintText: 'Enter valid email id as abc@gmail.com'),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(
-                  left: 15.0, right: 15.0, top: 15, bottom: 0),
+            Padding(
+              padding:
+                  EdgeInsets.only(left: 15.0, right: 15.0, top: 15, bottom: 0),
               //padding: EdgeInsets.symmetric(horizontal: 15),
               child: TextField(
                 obscureText: true,
