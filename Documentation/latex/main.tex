@@ -206,110 +206,112 @@ Saving water or using water with responsibility is something that has been going
 \end{enumerate}
 
 \section{Specification}
-\section{User Login Page}
-When the user opens the app, he will get the login page. They can either create a new account by choosing the register option, or login if they already have an account.
 
-To $\log$ in, the user must fill in their mail address or phone number, and password. They can also check the "Remember me" mark to stay connected every time the app is closed and reopened.
+\begin{enumerate}
+  \item {User Login Page} \\
+  When the user opens the app, he will get the login page. They can either create a new account by choosing the register option, or login if they already have an account. \\
+  To $\log$ in, the user must fill in their mail address or phone number, and password. They can also check the "Remember me" mark to stay connected every time the app is closed and reopened. \\
+  \includegraphics[max width=\textwidth]{2022_11_16_e80008f3d60227bff292g-4}
 
-\includegraphics[max width=\textwidth]{2022_11_16_e80008f3d60227bff292g-4}
+  \item {User Registration Page} \\
+  When choosing the register option on the login page, the user should be asked to fill in personal information such as:
+  \begin{itemize}
+    \item full name
+  
+    \item home address
+  
+    \item country of residence
+  
+    \item phone number
+  
+    \item email
+  
+    \item a password
+  
+  \end{itemize}
 
-\section{User Registration Page}
-When choosing the register option on the login page, the user should be asked to fill in personal information such as:
+  They will receive a SMS and email confirmation to confirm the creation of their account.
+  
+  \includegraphics[max width=\textwidth]{2022_11_16_e80008f3d60227bff292g-5}
 
-\begin{itemize}
-  \item full name
+  \item {House Registration Page} \\
+  After logging in for the first time or by choosing the "register devices" option on the profile settings page, the user will be asked to register their home appliance devices into the app.\\
+  In order to do that, the user has to be connected to each appliance's personal Wi-Fi network. After the connection has been established the app will automatically find all the compatible devices connected. The user can manually change the name of the device to create a more enjoyable experience. We found that the technical name of most devices do not properly describe their function.
 
-  \item home address
+  \includegraphics[max width=\textwidth]{2022_11_16_e80008f3d60227bff292g-5(1)}
 
-  \item country of residence
+  \item {Main Page} \\
+  After finishing registering everything and or logining in, the user will be shown the main page. On this page, the app will display a statistical overview of the relevant happenings. This overview should include:
+  
+  \begin{itemize}
+    \item That days water usage
+  
+    \item Appliance status
+  
+    \item Overview if daily, weekly or monthly usage goals have been failed or how far away from failing the user is.
+  
+  \end{itemize}
+  
+  The days water usage should be shown as a percentage of the set usage goal. A circle should be filled up with $100 \%$ filled representing $100 \%$ of the goal reached.
+  
+  \includegraphics[max width=\textwidth]{2022_11_16_e80008f3d60227bff292g-6}
+  
+  Should the user's set goal be failed, the graph that displays the percentage of the goal reached should also reflect that.
+  
+  \includegraphics[max width=\textwidth]{2022_11_16_e80008f3d60227bff292g-6(1)}
+  
+  \item {Consumption History and Forecast Page} \\
+  In the Consumption History and Forecast Page, the user will see a line chart showing water consumption over a selected time frame. The user can modify the time frame of the chart:
 
-  \item phone number
+  \begin{itemize}
+    \item current day
 
-  \item email
+    \item current week
 
-  \item a password
+    \item current month
 
-\end{itemize}
+  \end{itemize}
 
-They will receive a SMS and email confirmation to confirm the creation of their account.
+  At the bottom of the page there is a list of all appliances. The user is able to click on each device to show the consumption of only the selected device over the selected time period.
 
-\includegraphics[max width=\textwidth]{2022_11_16_e80008f3d60227bff292g-5}
+  On the same page the current water consumption is extrapolated and an estimated consumption for the selected time period is calculated. Should the estimated water consumption be higher than the set consumption goal, the user is warned of that.
 
-\section{House Registration Page}
-After logging in for the first time or by choosing the "register devices" option on the profile settings page, the user will be asked to register their home appliance devices into the app.
+  In the list of all appliances at the bottom of the page the current status of each appliance is visible. If an appliance is currently running the status should be "active" if not, "inactive". For "active" devices their current rate of consumption is also noted in the form of liters per minute.
 
-In order to do that, the user has to be connected to each appliance's personal Wi-Fi network. After the connection has been established the app will automatically find all the compatible devices connected. The user can manually change the name of the device to create a more enjoyable experience. We found that the technical name of most devices do not properly describe their function.
+  All numbers are rounded to the first decimal.
 
-\includegraphics[max width=\textwidth]{2022_11_16_e80008f3d60227bff292g-5(1)}
+  \includegraphics[max width=\textwidth]{2022_11_16_e80008f3d60227bff292g-6(2)}
 
-\section{Main Page}
-After finishing registering everything and or logining in, the user will be shown the main page. On this page, the app will display a statistical overview of the relevant happenings. This overview should include:
+  \item {Holiday Mode Page} \\
+  On the Holiday Mode Page the user is able to set their whole house to "holiday mode". If the home is in "holiday mode" the user is automatically notified if any water is used up at irregular amounts. On the same page, the idea of holiday mode is explained to the user.
 
-\begin{itemize}
-  \item That days water usage
+  \includegraphics[max width=\textwidth]{2022_11_16_e80008f3d60227bff292g-7}
 
-  \item Appliance status
+  \item {Notifications Page} \\
+  On the Notification Page the user is presented with all previous notifications. If a notification has not yet been seen by the user, it is marked as "unread".
 
-  \item Overview if daily, weekly or monthly usage goals have been failed or how far away from failing the user is.
+  \includegraphics[max width=\textwidth]{2022_11_16_e80008f3d60227bff292g-7(1)}
 
-\end{itemize}
+  \item {Profile Settings Page} \\
+  After registering a new account, the user will have to select some settings according to its country and metrics regulation, such as litter, cubic meter or gallons for the volume metric. They also have to choose the language they want to use as well as the currency such as US dollar, Euro, KRW, etc. for cost estimates.
 
-The days water usage should be shown as a percentage of the set usage goal. A circle should be filled up with $100 \%$ filled representing $100 \%$ of the goal reached.
+  The Profile Settings Page also allows the user to set their consumption goal. This number is the amount of water to be consumed in a month. The unit is the one selected by the user and the number is an integer.
 
-\includegraphics[max width=\textwidth]{2022_11_16_e80008f3d60227bff292g-6}
+  The option to delete the users account can also be found a t the bottom of the Profile Settings Page.
 
-Should the user's set goal be failed, the graph that displays the percentage of the goal reached should also reflect that.
+  \includegraphics[max width=\textwidth]{2022_11_16_e80008f3d60227bff292g-7(2)}
 
-\includegraphics[max width=\textwidth]{2022_11_16_e80008f3d60227bff292g-6(1)}
+  \item {Navigation Bar}
+  On the bottom of the app, the user can click on different icons that are lined up side to side. Each icon takes the user to a page specified above.
+  \begin{itemize}
+    \item {Main Page}
+    \item {Consumption History and Forecast Page}
+    \item {Holiday Mode Page}
+    \item {Profile Settings Page}
+  \end{itemize}
 
-\section{Consumption History and Forecast Page}
-In the Consumption History and Forecast Page, the user will see a line chart showing water consumption over a selected time frame. The user can modify the time frame of the chart:
+\end{enumerate}
 
-\begin{itemize}
-  \item current day
-
-  \item current week
-
-  \item current month
-
-\end{itemize}
-
-At the bottom of the page there is a list of all appliances. The user is able to click on each device to show the consumption of only the selected device over the selected time period.
-
-On the same page the current water consumption is extrapolated and an estimated consumption for the selected time period is calculated. Should the estimated water consumption be higher than the set consumption goal, the user is warned of that.
-
-In the list of all appliances at the bottom of the page the current status of each appliance is visible. If an appliance is currently running the status should be "active" if not, "inactive". For "active" devices their current rate of consumption is also noted in the form of liters per minute.
-
-All numbers are rounded to the first decimal.
-
-\includegraphics[max width=\textwidth]{2022_11_16_e80008f3d60227bff292g-6(2)}
-
-\section{Holiday Mode Page}
-On the Holiday Mode Page the user is able to set their whole house to "holiday mode". If the home is in "holiday mode" the user is automatically notified if any water is used up at irregular amounts. On the same page, the idea of holiday mode is explained to the user.
-
-\includegraphics[max width=\textwidth]{2022_11_16_e80008f3d60227bff292g-7}
-
-\section{Notifications Page}
-On the Notification Page the user is presented with all previous notifications. If a notification has not yet been seen by the user, it is marked as "unread".
-
-\includegraphics[max width=\textwidth]{2022_11_16_e80008f3d60227bff292g-7(1)}
-
-\section{Profile Settings Page}
-After registering a new account, the user will have to select some settings according to its country and metrics regulation, such as litter, cubic meter or gallons for the volume metric. They also have to choose the language they want to use as well as the currency such as US dollar, Euro, KRW, etc. for cost estimates.
-
-The Profile Settings Page also allows the user to set their consumption goal. This number is the amount of water to be consumed in a month. The unit is the one selected by the user and the number is an integer.
-
-The option to delete the users account can also be found a t the bottom of the Profile Settings Page.
-
-\includegraphics[max width=\textwidth]{2022_11_16_e80008f3d60227bff292g-7(2)}
-
-\section{Navigation Bar}
-On the bottom of the app, the user can click on different icons that are lined up side to side. Each icon takes the user to a page specified above.\\
-A. Main Page\\
-B. Consumption History and Forecast Page\\
-C. Holiday Mode Page\\
-D. Notifications Page\\
-E. Profile Settings Page
 
 \section{Citations}
 [1] "Dropcountr." Dropcountr, \href{https://www.dropcountr.com/}{https://www.dropcountr.com/}
@@ -318,11 +320,8 @@ E. Profile Settings Page
 
 [3] "Klima." Klima, \href{https://klima.com/}{https://klima.com/}
 
-[4] "Kill-Ur-Watts", DevPost, \href{https://appsforenergy.devpost.com/submission}{https://appsforenergy.devpost.com/submission} s/7967-kill-ur-watts
+[4] "Kill-Ur-Watts", DevPost, \href{https://appsforenergy.devpost.com/submission}
 
-[5] “Nest.", Nest,
-
-\href{http://www.nest.com}{www.nest.com}
-
+[5] “Nest.", Nest, \href{http://www.nest.com}{www.nest.com}
 
 \end{document}
