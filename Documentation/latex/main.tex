@@ -1,9 +1,6 @@
 \documentclass[10pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{amsmath}
-\usepackage{amsfonts}
-\usepackage{amssymb}
 \usepackage[version=4]{mhchem}
 \usepackage{stmaryrd}
 \usepackage{graphicx}
@@ -15,21 +12,38 @@
 
 \title{WET - Water Efficiency Tool }
 
-
-\author{Bessis Hugo\\
-ESILV\\
-Paris, France\\
-hugob6@orange.fr}
-\date{}
+\author{
+  Bessis, Hugoo\\
+  ESILV\\
+  Paris, France\\
+  hugob6@orange.fr
+  \and
+  Saouab, Oumniya\\
+  Al Akhawayn University\\
+  Casablanca, Morocco\\
+  oumniyasaouab@gmail.com
+  \and
+  Utama, Takara Izzah\\
+  Hanyang University\\
+  Seoul, South Korea\\
+  takaraizzahutama@gmail.com
+  \and
+  van der Heide, Niklas\\
+  ZHAW - School of Applied Sciences\\
+  Winterthur, Switzerland\\
+  niklasvdh@gmxch
+}
 
 
 \begin{document}
 \maketitle
 
-
 \begin{abstract}
 House owners that have tight schedules or have a busy lifestyle tend to forget to monitor their houses properly. For example, they forget to close a water tap after using it. To check every water tap is closed properly or to make sure you are not using your water recklessly consumes time and requires a family member to be at the house. Therefore, our team is trying to develop an application (app) that monitors the water consumption in real time. The app not only provides real time monitoring but also provides users with consumption history, consumption limits, leakage detection, and consumption forecast. The primary goal of this app is to enable a user to monitor the water usage through a mobile application. This would help people structure their water usage more efficiently and change habits of consumption.
 \end{abstract}
+
+\clearpage
+
 
 \section{Role Assignments}
 
@@ -52,16 +66,16 @@ Development Manager & Hugo & Developer Manager is the person in charge of superv
 
 
 \section{Introduction}
--Motivation:
-
 Managing water consumption is vital for life preservation. Better knowing one's water consumption at home can have a great impact on water saving. Even families could change habits of consumption. Reports have warned of an impending global water crisis due to surging population growth, climate change, reckless consumption, and chronic waste. We hope to help people to use water more responsibly to help stop the global water crisis. While trying to do some research on similar apps, we were not able to find that many existing projects. Thus, we are motivated to provide a solution to this problem.
 
 Our application provides some features that help the user to monitor their water consumption in real time, let users know their consumption history based on day, weeks, etc. Also, the app let users limit their usage so that they could save water and money and even gave them the consumption forecast, so that they could change their habit if they are using water recklessly. As a result, we hope that this application will help the problem of the water crisis that is currently happening in the world right now.
+
 
 \section{Problem Statement}
 The Water Efficiency Tool is a project hoping to help people monitor and manage their water consumption. In this form we envision the application user to actively monitor their water consumption, and if there is any water running for an unusual duration the app will give you a notification about it, and you can remotely close the central water supply to make it stop. In other words, the Water Efficiency Tool is a project that aims to assist people in tracking and controlling their water usage. In its current form, the application allows users to actively monitor their water usage. If any water is left running for a length of time that is unusual, the app will notify the user and allow them to remotely shut off the main water supply to stop it.
 
 Saving water or using water with responsibility is something that has been going on for years, but to actually do it or to encourage people to do so is a hard thing to do. Because excessive water use can go unnoticed. Water bills are relatively cheaper than other utilities. Compared to other problems, benefits of reducing water consumption are not necessarily felt by the individual. And many people don't believe that individual actions can make much of a difference compared to the amount of water lost through leakages. As a result, some other parts of the world are having a water crisis and shortage.
+
 
 \section{Related Software}
 
@@ -115,7 +129,7 @@ Saving water or using water with responsibility is something that has been going
   The user's email or phone number should be verified to ensure their authenticity. The set email or phone number together with the given password will be used to authenticate and login the user.
 
   \item {User Login}\\
-  After a user has been successfully registered they should be able to $\log$ in to the app with their email or phone number together with the correct password. Only when logged in should the user be able to access, manage or change their home's information.
+  After a user has been successfully registered they should be able to log in to the app with their email or phone number together with the correct password. Only when logged in should the user be able to access, manage or change their home's information.
 
   \item {Device Registration} \\
   Home appliances that include the necessary wifi capability as well as the sensors to capture the information relevant to the system should be able to be registered in the app. To add a new device, the user must be logged in and connected to the same network as the appliance to be added.
@@ -180,7 +194,9 @@ Saving water or using water with responsibility is something that has been going
 
 \end{enumerate}
 
+
 \section{Development environment}
+
 \begin{enumerate}
   \item {OS} \\
   We are going to develop applications on Windows using mac OS and Windows as our main development platform. Windows is a good choice for programming since it provides many programs, language, and also has a really good IDE, Visual Studio. And the whole Windows development stack is amazing. However, MacOS is also a good option for someone that works on a back-end server because it's based on Unix and runs nearly all Linux software.
@@ -191,10 +207,10 @@ Saving water or using water with responsibility is something that has been going
   \item {Languages} \\
   We have decided to use $G O$ to create an API to manage a $S Q L$ database. For the main application, Flutter and Dart were selected. With Flutter, a cross platform application is possible.
   
-  \item {Development Environment} \\
-   
+  \item {Development Environment}
+
   \begin{itemize}
-    \item {Visual Studio Code} \\
+    \item {Visual Studio Code}
     
     Our application will be launched on multiple platforms, and Visual Studio Code offers that feature. Visual Studio Code has an in-built debugger making the development flow less ‘clicky’ and maintains a single view with the code and debugger. In addition to this, there is intelliSense built into the code editor which is a form of predictive coding. With the addition of framework, library, and language plugin extensions, we can fully utilize the usage of it.
 
@@ -220,14 +236,17 @@ Saving water or using water with responsibility is something that has been going
   \end{itemize}
 \end{enumerate}
 
+
 \section{Specification}
 
 \begin{enumerate}
   \item {User Login Page} \\
   When the user opens the app, he will get the login page. They can either create a new account by choosing the register option, or login if they already have an account. \\
-  To $\log$ in, the user must fill in their mail address or phone number, and password. They can also check the "Remember me" mark to stay connected every time the app is closed and reopened. \\
-  \includegraphics[max width=\textwidth]{2022_11_16_e80008f3d60227bff292g-4}
-
+  To log in, the user must fill in their mail address or phone number, and password. They can also check the "Remember me" mark to stay connected every time the app is closed and reopened. \\
+  \begin{center}
+    \includegraphics[max width=4cm]{login.jpg}
+  \end{center}
+  
   \item {User Registration Page} \\
   When choosing the register option on the login page, the user should be asked to fill in personal information such as:
   \begin{itemize}
@@ -247,13 +266,17 @@ Saving water or using water with responsibility is something that has been going
 
   They will receive a SMS and email confirmation to confirm the creation of their account.
   
-  \includegraphics[max width=\textwidth]{2022_11_16_e80008f3d60227bff292g-5}
+  \begin{center}
+    \includegraphics[max width=4cm]{signup.jpg}
+  \end{center}
 
   \item {House Registration Page} \\
   After logging in for the first time or by choosing the "register devices" option on the profile settings page, the user will be asked to register their home appliance devices into the app.\\
   In order to do that, the user has to be connected to each appliance's personal Wi-Fi network. After the connection has been established the app will automatically find all the compatible devices connected. The user can manually change the name of the device to create a more enjoyable experience. We found that the technical name of most devices do not properly describe their function.
 
-  \includegraphics[max width=\textwidth]{2022_11_16_e80008f3d60227bff292g-5(1)}
+  \begin{center}
+    \includegraphics[max width=4cm]{houseregistration.jpg}
+  \end{center}
 
   \item {Main Page} \\
   After finishing registering everything and or logining in, the user will be shown the main page. On this page, the app will display a statistical overview of the relevant happenings. This overview should include:
@@ -269,12 +292,16 @@ Saving water or using water with responsibility is something that has been going
   
   The days water usage should be shown as a percentage of the set usage goal. A circle should be filled up with $100 \%$ filled representing $100 \%$ of the goal reached.
   
-  \includegraphics[max width=\textwidth]{2022_11_16_e80008f3d60227bff292g-6}
-  
+  \begin{center}
+    \includegraphics[max width=4cm]{mainpage-1.jpg}
+  \end{center}
+
   Should the user's set goal be failed, the graph that displays the percentage of the goal reached should also reflect that.
   
-  \includegraphics[max width=\textwidth]{2022_11_16_e80008f3d60227bff292g-6(1)}
-  
+  \begin{center}
+    \includegraphics[max width=4cm]{mainpage-2.jpg}
+  \end{center}
+
   \item {Consumption History and Forecast Page} \\
   In the Consumption History and Forecast Page, the user will see a line chart showing water consumption over a selected time frame. The user can modify the time frame of the chart:
 
@@ -295,17 +322,23 @@ Saving water or using water with responsibility is something that has been going
 
   All numbers are rounded to the first decimal.
 
-  \includegraphics[max width=\textwidth]{2022_11_16_e80008f3d60227bff292g-6(2)}
+  \begin{center}
+    \includegraphics[max width=4cm]{historyandprojection.jpg}
+  \end{center}
 
   \item {Holiday Mode Page} \\
   On the Holiday Mode Page the user is able to set their whole house to "holiday mode". If the home is in "holiday mode" the user is automatically notified if any water is used up at irregular amounts. On the same page, the idea of holiday mode is explained to the user.
 
-  \includegraphics[max width=\textwidth]{2022_11_16_e80008f3d60227bff292g-7}
+  \begin{center}
+    \includegraphics[max width=4cm]{holidaymode.jpg}
+  \end{center}
 
   \item {Notifications Page} \\
   On the Notification Page the user is presented with all previous notifications. If a notification has not yet been seen by the user, it is marked as "unread".
 
-  \includegraphics[max width=\textwidth]{2022_11_16_e80008f3d60227bff292g-7(1)}
+  \begin{center}
+    \includegraphics[max width=4cm]{notifications.jpg}
+  \end{center}
 
   \item {Profile Settings Page} \\
   After registering a new account, the user will have to select some settings according to its country and metrics regulation, such as litter, cubic meter or gallons for the volume metric. They also have to choose the language they want to use as well as the currency such as US dollar, Euro, KRW, etc. for cost estimates.
@@ -314,7 +347,9 @@ Saving water or using water with responsibility is something that has been going
 
   The option to delete the users account can also be found a t the bottom of the Profile Settings Page.
 
-  \includegraphics[max width=\textwidth]{2022_11_16_e80008f3d60227bff292g-7(2)}
+  \begin{center}
+    \includegraphics[max width=4cm]{profilesettings.jpg}
+  \end{center}
 
   \item {Navigation Bar}
   On the bottom of the app, the user can click on different icons that are lined up side to side. Each icon takes the user to a page specified above.
@@ -327,7 +362,7 @@ Saving water or using water with responsibility is something that has been going
 
 \end{enumerate}
 
-
+\clearpage
 \section{Citations}
 [1] "Dropcountr." Dropcountr, \href{https://www.dropcountr.com/}{https://www.dropcountr.com/}
 
@@ -335,7 +370,7 @@ Saving water or using water with responsibility is something that has been going
 
 [3] "Klima." Klima, \href{https://klima.com/}{https://klima.com/}
 
-[4] "Kill-Ur-Watts", DevPost, \href{https://appsforenergy.devpost.com/submission}
+[4] "Kill-Ur-Watts", DevPost, \href{https://appsforenergy.devpost.com/submission}{https://appsforenergy.devpost.com/submission}
 
 [5] “Nest.", Nest, \href{http://www.nest.com}{www.nest.com}
 
