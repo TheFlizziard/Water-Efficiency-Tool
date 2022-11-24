@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/gestures.dart';
 
 import './settings.dart';
 import './home.dart';
 import './home_page.dart';
 import './notifications_page.dart';
 import './notifications.dart';
+import './sign_up_page.dart';
 
 void main() => runApp(const MyApp());
 
@@ -35,14 +37,13 @@ class _LoginManagerState extends State<LoginManager> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: Text("Login Page"),
-        automaticallyImplyLeading: false,
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          title: Text("Login Page"),
+          automaticallyImplyLeading: false,
+        ),
+        body: SingleChildScrollView(
+          child: Column(children: <Widget>[
             Padding(
               padding: const EdgeInsets.only(top: 60.0),
               child: Center(
@@ -56,8 +57,8 @@ class _LoginManagerState extends State<LoginManager> {
               ),
             ),
             const Padding(
-              //padding: const EdgeInsets.only(left:15.0,right: 15.0,top:0,bottom: 0),
-              padding: EdgeInsets.symmetric(horizontal: 15),
+              padding: EdgeInsets.only(left:15.0,right: 15.0,top:15.0,bottom: 0),
+              //padding: EdgeInsets.symmetric(horizontal: 15),
               child: TextField(
                 decoration: InputDecoration(
                     border: OutlineInputBorder(),
@@ -66,11 +67,10 @@ class _LoginManagerState extends State<LoginManager> {
               ),
             ),
             const Padding(
-              padding: EdgeInsets.only(
-                  left: 15.0, right: 15.0, top: 15, bottom: 0),
+              padding:
+                  EdgeInsets.only(left: 15.0, right: 15.0, top: 15, bottom: 0),
               //padding: EdgeInsets.symmetric(horizontal: 15),
               child: TextField(
-
                 obscureText: true,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(),
@@ -79,7 +79,7 @@ class _LoginManagerState extends State<LoginManager> {
               ),
             ),
             TextButton(
-              onPressed: (){
+              onPressed: () {
                 //TODO FORGOT PASSWORD SCREEN GOES HERE
               },
               child: const Text(
@@ -106,12 +106,28 @@ class _LoginManagerState extends State<LoginManager> {
             const SizedBox(
               height: 130,
             ),
-            const Text('New User? Create Account')
-          ],
-        ),
-      ),
-    );
+            RichText(
+              text: TextSpan(
+                text: 'New User? ',
+                children: <TextSpan>[
+                  TextSpan(
+                    text: 'Create Account',
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (_) => SignUpManager()));
+                      },
+                    style: const TextStyle(
+                      color: Colors.blue,
+                    ),
+                  ),
+                ],
+                style: const TextStyle(
+                  color: Colors.black,
+                ),
+              ),
+            ),
+          ]),
+        ));
   }
 }
-
-
