@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:water_efficiency_tool/net/flutterfire.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'net/flutterfire.dart';
+import 'package:flutter/gestures.dart';
+
 import './settings.dart';
 import './home.dart';
 import './home_page.dart';
 import './notifications_page.dart';
 import './notifications.dart';
+import './sign_up_page.dart';
 
 void main() => runApp(const MyApp());
 
@@ -29,27 +29,21 @@ class MyApp extends StatelessWidget {
 }
 
 class LoginManager extends StatefulWidget {
-  LoginManager({Key? key}) : super(key: key);
-
   @override
   _LoginManagerState createState() => _LoginManagerState();
 }
 
 class _LoginManagerState extends State<LoginManager> {
-  TextEditingController _emailField = TextEditingController();
-  TextEditingController _passwordField = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: Text("Login Page"),
-        automaticallyImplyLeading: false,
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          title: Text("Login Page"),
+          automaticallyImplyLeading: false,
+        ),
+        body: SingleChildScrollView(
+          child: Column(children: <Widget>[
             Padding(
               padding: const EdgeInsets.only(top: 60.0),
               child: Center(
@@ -62,24 +56,23 @@ class _LoginManagerState extends State<LoginManager> {
                     child: Image.asset('./asset/images/logo_wet.png')),
               ),
             ),
-            Padding(
-              //padding: const EdgeInsets.only(left:15.0,right: 15.0,top:0,bottom: 0),
-              padding: EdgeInsets.symmetric(horizontal: 15),
+            const Padding(
+              padding: EdgeInsets.only(
+                  left: 15.0, right: 15.0, top: 15.0, bottom: 0),
+              //padding: EdgeInsets.symmetric(horizontal: 15),
               child: TextField(
-                controller: _emailField,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Email',
                     hintText: 'Enter valid email id as abc@gmail.com'),
               ),
             ),
-            Padding(
+            const Padding(
               padding:
                   EdgeInsets.only(left: 15.0, right: 15.0, top: 15, bottom: 0),
               //padding: EdgeInsets.symmetric(horizontal: 15),
               child: TextField(
                 obscureText: true,
-                controller: _passwordField,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Password',
@@ -101,15 +94,9 @@ class _LoginManagerState extends State<LoginManager> {
               decoration: BoxDecoration(
                   color: Colors.blue, borderRadius: BorderRadius.circular(20)),
               child: TextButton(
-                onPressed: () async {
-                  bool shouldNavigate =
-                      await signIn(_emailField.text, _passwordField.text);
-                  if (shouldNavigate) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => HomePage()),
-                    ); // Navigator
-                  }
+                onPressed: () {
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (_) => HomePage()));
                 },
                 child: const Text(
                   'Login',
@@ -120,10 +107,28 @@ class _LoginManagerState extends State<LoginManager> {
             const SizedBox(
               height: 130,
             ),
-            const Text('New User? Create Account')
-          ],
-        ),
-      ),
-    );
+            RichText(
+              text: TextSpan(
+                text: 'New User? ',
+                children: <TextSpan>[
+                  TextSpan(
+                    text: 'Create Account',
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (_) => SignUpManager()));
+                      },
+                    style: const TextStyle(
+                      color: Colors.blue,
+                    ),
+                  ),
+                ],
+                style: const TextStyle(
+                  color: Colors.black,
+                ),
+              ),
+            ),
+          ]),
+        ));
   }
 }
