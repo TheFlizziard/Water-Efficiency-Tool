@@ -2,6 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{a4wide}
+\usepackage{float}
 \usepackage[version=4]{mhchem}
 \usepackage{stmaryrd}
 \usepackage{multicol}
@@ -12,8 +13,13 @@
 \urlstyle{same}
 \setlength\columnsep{25pt}
 
+\usepackage{array}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+
 \title{WET - Water Efficiency Tool }
 
+\iffalse
 \author{
   Bessis, Hugoo\\
   ESILV\\
@@ -33,12 +39,30 @@
   van der Heide, Niklas\\
   ZHAW - School of Applied Sciences\\
   Winterthur, Switzerland\\
-  niklasvdh@gmxch
+  niklasvdh@gmx.ch
 }
-
+\fi
 
 \begin{document}
 \maketitle
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{P{5.5cm}P{1cm}P{5.5cm}}
+    Bessis, Hugoo & & Saouab, Oumniya \\
+    ESILV & & Al Akhawayn University \\
+    Paris, France & & Casablanca, Morocco \\
+    hugob6@orange.fr & & oumniyasaouab@gmail.com \\
+     & &  \\
+     & &  \\
+    Utama, Takara Izzah & & van der Heide, Niklas \\
+    Hanyang University & & ZHAW - School of Applied Sciences \\
+    Seoul, South Korea & & Winterthur, Switzerland \\
+    takaraizzahutama@gmail.com & & niklasvdh@gmx.ch \\
+  \end{tabular}
+\end{table}
+
+\vspace{1cm}
 
 \begin{abstract}
 House owners that have tight schedules or have a busy lifestyle tend to forget to monitor their houses properly. For example, they forget to close a water tap after using it. To check every water tap is closed properly or to make sure you are not using your water recklessly consumes time and requires a family member to be at the house. Therefore, our team is trying to develop an application (app) that monitors the water consumption in real time. The app not only provides real time monitoring but also provides users with consumption history, consumption limits, leakage detection, and consumption forecast. The primary goal of this app is to enable a user to monitor the water usage through a mobile application. This would help people structure their water usage more efficiently and change habits of consumption.
