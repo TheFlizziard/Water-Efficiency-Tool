@@ -70,22 +70,22 @@ House owners that have tight schedules or have a busy lifestyle tend to forget t
 
 \clearpage
 
-\begin{multicols}{2}
+\begin{multicols*}{2}
 
 \section{Role Assignments}
 
 \begin{itemize}
-  \item User\\
+  \item {User} \\
   Users are people owning a home equipped appliances that include the necessary sensors and internet access. The User role should help the team better analyze what features are actually useful and to judge the current user experience.\\
   This role will be filled by Oumniya Saouab.
-  \item Customer\\
+  \item {Customer} \\
   A home appliance company that wants to give their users the possibility to manage their appliances by using WET would be our customer. This role will help in creating a product that could actually be sold and generate profit.\\
   This role will be filled by Takara Utama.
-  \item Software Developer\\
+  \item {Software Developer} \\
   The software developer thinks, designs, and realizes the software in general. Their goal is to implement all the requirements.\\
   This role will be filled by Niklas van der Heide.
-  \item Development Manager\\
-  Developer Manager is the person in charge of supervising their team's work throughout the app's development. They should have a good overview over what features are being worked on and by whom.\\
+  \item {Development Manager} \\
+  Development Manager is the person in charge of supervising their team's work throughout the app's development. They should have a good overview over what features are being worked on and by whom.\\
   This role will be filled by Hugo Bessis.
 \end{itemize}
 
@@ -119,6 +119,7 @@ The Water Efficiency Tool is a project hoping to help people monitor and manage 
 
 Saving water or using water with responsibility is something that has been going on for years, but to actually do it or to encourage people to do so is a hard thing to do. Because excessive water use can go unnoticed. Water bills are relatively cheaper than other utilities. Compared to other problems, benefits of reducing water consumption are not necessarily felt by the individual. And many people don't believe that individual actions can make much of a difference compared to the amount of water lost through leakages. As a result, some other parts of the world are having a water crisis and shortage.
 
+\clearpage
 
 \section{Related Software}
 
@@ -146,8 +147,11 @@ Saving water or using water with responsibility is something that has been going
 
 \end{enumerate}
 
+\clearpage
 
 \section{Requirements}
+
+Before starting with any development it is important to make it clear what the application should actially do. To make sure everyone is on the same page and to create a concrete plan, the following requirements for our app have been defined. We allowed ourselves to change any requirement if necessary. A requirement change should always be discussed in the team to avoid confusion.
 
 \begin{enumerate}
   \item {User Registration}
@@ -237,8 +241,9 @@ Saving water or using water with responsibility is something that has been going
 
 \end{enumerate}
 
+\clearpage
 
-\section{Development environment}
+\section{Tools and Environment}
 
 \begin{enumerate}
   \item {Operating System} \\
@@ -255,22 +260,31 @@ Saving water or using water with responsibility is something that has been going
     Android Studio provides emulators for Android based phones. The written front end code can be quiqly tested by running an emulator that constantly runs the most recent code. Android Studio can also be used as an IDE for $Flutter$ and $Dart$ development.
     \item {GitHub} \\
     GitHub is free online service to host and manage Git repositories. With GitHub we can manage the code with propper version controll. GitHub also allows for pull request wich allows the more experianced team members to review and comment on the other members code before merging it into the main code base.
+    \item {Postman} \\
+    Postman is a tool to test APIs. Requests of all types can be created and reused at a later time. This tool is a big time saver when working on an API wich is why we decided to use it.
   \end{itemize}
 
   \item {Services} \\
-  One Service that will be used is a server hosting provider. The backend software, as well as the database would be hosted online.
+  To allow our Application to function, different services are required. Here is a list of the ones we employ.
   \begin{itemize}
-    \item Firebase
-    \item MongoDB
-    \item AWS
+    \item {Firebase} \\
+    Firebase is used for its simple and easy to use user managements service. Users can be registered and authenticated.
+    \item {MongoDB} \\
+    A big part of the application is the data the different appliances provide. This data is stored in a $MongoDB$ database. $MongoDB$ is especially usefull since the data can be stored and directily retreived in $JSON$ format.
+    \item {AWS} \\
+    The MongoDB database is stored on a local AWS server. The management of that server is fully done by the $MongoDB$ online application.
   \end{itemize}
 
   \item {Software In Use}
-  Since we have not yet started development, we have not yet used any software. The following software will probably be used.
+  Other than the development tools mentioned above, some other software is used to help with development
   \begin{itemize}
-    \item Database Management
-    \item Mobile Phone Emulator
-    \item LateX renderer TODO
+    \item {MiKTeX} \\
+    To work on this document, wich is written in LateX a way of rendering the written text to a PDF file. MiKTeX provides the feaetures to do this. It manages and automatically downloades the included libraries and plugins.
+    \item {Umlet} \\
+    Umlet is a useful tool to create simple UML diagrams. We used it to create the Use Case Diagram seen below.
+    \item {diagrams.net} \\
+    Formaly known as draw.io, doagrams is a useful tool for more dynamic diagrams and other ilustration. It was used to creat the applications architecture diagram.
+    
   \end{itemize}
 \end{enumerate}
 
@@ -285,7 +299,7 @@ Saving water or using water with responsibility is something that has been going
   \begin{center}
     \includegraphics[max width=4cm]{login.jpg}
   \end{center}
-  
+
   \item {User Registration Page} \\
   When choosing the register option on the login page, the user should be asked to fill in personal information such as:
   \begin{itemize}
@@ -388,7 +402,36 @@ Saving water or using water with responsibility is something that has been going
 
 \end{enumerate}
 
-\end{multicols}
+\clearpage
+
+\section{Architecture Design}
+
+\begin{enumerate}
+  \item {Overall Architecture} \\
+  Explanation + Diagram
+  \item {Directory Organisation} \\
+  Explanation + Diagram
+  \item {Module 1} \\
+  Providea detailed description of each module: purpose, functionality, locationof source code, class components, where it’s taken from, how/why you used it, and others.Any type of graphical representation is also recommended.
+  \item {Module 2} \\
+  Providea detailed description of each module: purpose, functionality, locationof source code, class components, where it’s taken from, how/why you used it, and others.Any type of graphical representation is also recommended.
+\end{enumerate}
+
+\clearpage
+
+\section{Use Cases}
+\begin{enumerate}
+  \item {Use Case 1} \\
+  \item {Use Case 2} \\
+\end{enumerate}
+
+\clearpage
+
+\section{Discussion} 
+
+Write one or more paragraph(s) to describe any difficulty and experience you had. No less than 300 words. (e.g., communication difficulties in team, any non-technical difficulties, things to improve, and etc.)
+
+\end{multicols*}
 
 \clearpage
 \section{Citations}
