@@ -1,0 +1,54 @@
+[
+    {
+        "name":"Dishwasher",
+        "description": "A Dishwasher for the house.",
+        "measurements": [
+            {
+                "date": "Tue, 19 Aug 1975 23:15:30 GMT",
+                "amount" : 10.4
+            },
+            {
+                "date": "Tue, 20 Aug 1975 23:15:30 GMT",
+                "amount" : 12.4
+            },
+            {
+                "date": "Tue, 21 Aug 1975 23:15:30 GMT",
+                "amount" : 134.2
+            }
+        ]
+    },
+    {
+        "name":"Shower",
+        "measurements": [
+            {
+                "date": "Tue, 19 Aug 1975 23:15:30 GMT",
+                "amount" : 40.4
+            },
+            {
+                "date": "Tue, 20 Aug 1975 23:15:30 GMT",
+                "amount" : 63.12
+            },
+            {
+                "date": "Tue, 21 Aug 1975 23:15:30 GMT",
+                "amount" : 201.3
+            }
+        ]
+    },
+    {
+        "name":"Kitchen Sink",
+        "measurements": [
+            {
+                "date": "Tue, 19 Aug 1975 23:15:30 GMT",
+                "amount" : 10.2
+            },
+            {
+                "date": "Tue, 20 Aug 1975 23:15:30 GMT",
+                "amount" : 83.1
+            },
+            {
+                "date": "Tue, 21 Aug 1975 23:15:30 GMT",
+                "amount" : 49.2
+            }
+        ]
+    }
+]

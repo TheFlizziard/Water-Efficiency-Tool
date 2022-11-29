@@ -16,8 +16,10 @@ class Notifications extends StatelessWidget {
               child: Column(
                 children: [
                   Text(element, style: optionStyle,),
+
                 ],
               ),
+
             ),
           )
           .toList(),
