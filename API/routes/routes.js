@@ -24,7 +24,25 @@ router.post('/post', async (req, res) => {
 router.get('/getAll', async (req, res) => {
     try{
         const data = await Model.find();
-        res.json(data)
+        console.log(data);
+        // print datatype of date in measurements
+        console.log(data[0].measurements[0].date);
+        // print the month of the date in measurements
+        console.log(data[0].measurements[0].date.getMonth());
+        // for each appliance, find the sum of the measurements by month
+        const monthlySumByAppliance = {};
+        data.map(appliance => {
+            monthlySumByAppliance[appliance.name] = {};
+            let sum = [0,0,0,0,0,0,0,0,0,0,0,0];
+            for (let j = 0; j < appliance.measurements.length; j++) {
+                sum[appliance.measurements[j].date.getMonth()] += appliance.measurements[j].amount;
+            }
+            monthlySumByAppliance[appliance.name]['measurementsByMonth'] = sum;
+            monthlySumByAppliance[appliance.name]['measurementsTotal'] = sum.reduce((a, b) => a + b, 0);
+            console.log(sum);
+        }
+        );
+        res.status(200).json(monthlySumByAppliance)
     }
     catch(error){
         res.status(500).json({message: error.message})

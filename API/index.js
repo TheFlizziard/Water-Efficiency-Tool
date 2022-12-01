@@ -1,8 +1,9 @@
-require('dotenv').config();
+require('dotenv').config({path: 'DOC-20221128-WA0000.env'});
 
 const express = require('express');
 const mongoose = require('mongoose');
 const mongoString = process.env.DATABASE_URL;
+console.log(mongoString);
 
 const routes = require('./routes/routes');
 

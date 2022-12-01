@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config({path: 'DOC-20221128-WA0000.env'});
 
 const request = require('request')
 const data = require("./testData.json")
