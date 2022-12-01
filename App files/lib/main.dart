@@ -1,5 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
+import 'package:http/http.dart' as http;
 
 import './settings.dart';
 import './home.dart';
@@ -7,11 +10,22 @@ import './home_page.dart';
 import './notifications_page.dart';
 import './notifications.dart';
 import './sign_up_page.dart';
+import './my_api.dart';
 
-void main() => runApp(const MyApp());
+const mongo_url="mongodb+srv://nikipuk:G0IG2U28BA9XPHxE@cluster0.htbrtpo.mongodb.net/test";
+const collection_name="appliances";
+
+Future<void> main() async {
+  runApp(MyApp());
+}
+
+void test() async {
+  var api = await CallApi().getData('getall');
+  print(jsonDecode(api));
+}
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
 
   static const String _title = 'Water Efficiency Tool';
   static const String name = '';
@@ -80,7 +94,7 @@ class _LoginManagerState extends State<LoginManager> {
             ),
             TextButton(
               onPressed: () {
-                //TODO FORGOT PASSWORD SCREEN GOES HERE
+                test();
               },
               child: const Text(
                 'Forgot Password',

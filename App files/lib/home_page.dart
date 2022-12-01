@@ -22,9 +22,8 @@ class _HomePage extends State<HomePage> {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static final List<Widget> _widgetOptions = <Widget>[
-    const Text(
-      'Index 0: Home',
-      style: optionStyle,
+    Scaffold(
+      body: Home(),
     ),
     Scaffold(
       body: ChartManager(),

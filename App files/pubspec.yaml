@@ -37,6 +37,10 @@ dependencies:
   cupertino_icons: ^1.0.2
   custom_switch: ^0.0.1
   syncfusion_flutter_charts: ^20.3.57
+  mongo_dart: ^0.8.1
+  fl_chart: ^0.55.2
+  http: ^0.13.5
+
 
 dev_dependencies:
   flutter_test:
