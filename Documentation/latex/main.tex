@@ -8,6 +8,7 @@
 \usepackage{multicol}
 \usepackage[export]{adjustbox}
 \usepackage{hyperref}
+\usepackage{dirtree}
 \graphicspath{ {./images/} }
 \hypersetup{colorlinks=true, linkcolor=blue, filecolor=magenta, urlcolor=cyan,}
 \urlstyle{same}
@@ -406,15 +407,69 @@ Before starting with any development it is important to make it clear what the a
 
 \section{Architecture Design}
 
+\iffalse
+\dirtree{%
+  .1 /.
+  .2 API.
+  .3 models.
+  .3 routes.
+  .2 App Files.
+  .2 Documentation.
+  .3 Figma.
+  .3 Latex.
+}
+\fi
+
 \begin{enumerate}
-  \item {Overall Architecture} \\
-  Explanation + Diagram
+  \item {System Architecture} \\
+  The overall system Architecture of the WET infrastructure is quite simple.
+  Users interract with the system through the app, which is installed on their mobile device. This mobile app represents the entire Front end.
+
+  This app internaly calls the required back end services these services are comprised of the authentication service as well as a service that manages the data produced by the smart appliances.
+  With the help of Firebase the app is able to connect directily to its authentication service without the need for any further backend infrastructure.
+  The users data is stored in a $MongoDB$ database. To manage its access another facade interface in the form of a Node.js server was created. The Node.js server is manages requests and responses to and from the front end.
+
+  This Architecture is what was used to create the MVP (minimum viable product). If the idea of WET would be developed into a fully fledged product the architecture would have to be reworked and extended.
+
+  \begin{center}
+    \includegraphics[max width=6cm]{architecture}
+  \end{center}
+  
   \item {Directory Organisation} \\
-  Explanation + Diagram
-  \item {Module 1} \\
-  Providea detailed description of each module: purpose, functionality, locationof source code, class components, where it’s taken from, how/why you used it, and others.Any type of graphical representation is also recommended.
-  \item {Module 2} \\
-  Providea detailed description of each module: purpose, functionality, locationof source code, class components, where it’s taken from, how/why you used it, and others.Any type of graphical representation is also recommended.
+  The code that is used to run our application as wellas its documentation is stored in vareous folders inside a GitHub repository.
+  This the basic folder structure and a short description of what each folder is used for:
+
+  \begin{center}
+    \includegraphics[max width=3cm]{repoTree}
+  \end{center}
+
+  \begin{itemize}
+    \item {API} \\
+    The API folder stores all code used to run the Node.js backend used to connect to the MongoDB storing the appliance data.
+    \begin{itemize}
+      \item {models} \\
+      The folder contains all database models used to define the structure of the data stored inside the MongoDB.
+      \item {routes} \\
+      Inside the routes folders are the definitions of all the possible acces points to the API that can be used by the front end as well as appiances to send and receive data.
+    \end{itemize}
+    \item {App Files} \\
+    The App Files folder defines the front of the application. It stores the code that is used to compile the mobile application as well as all other supporting scripts.
+    \item {Documentation} \\
+    An important part of any poject is its documentation. The documentation of our project is also stored inside the GitHub repository to allow collaboration.
+    \begin{itemize}
+      \item {Figma} \\
+      The layout of the mobile application was first designed in Figma. This folder stores all those designs and related documentation.
+      \item {Latex} \\
+      This documentation is written in Latex. The raw Latex code used to generate the pdf document as well as all images that are included in it are stored inside this folder.
+    \end{itemize}
+  \end{itemize}
+
+  \item {Module 1 (App)} \\
+  The frontend is accting is the main interraction interface the users use to interract with the entire application. The mobile application allows the user to see the data genereated by their home smart appliances and all other functional requirements listed.
+  All frontend code is located in the "./App Files" folder on the GitHub repository.
+  \item {Module 2 (Server)} \\
+  The backend server is used by the frontend mobile application to access the the data stored by the MongoDB database. It is also the access point used by the appliances to send their data to.
+  All backend code is located in the "./API" folder on the GitHub repository.
 \end{enumerate}
 
 \clearpage
@@ -422,13 +477,15 @@ Before starting with any development it is important to make it clear what the a
 \section{Use Cases}
 \begin{enumerate}
   \item {Use Case 1} \\
+  TODO
   \item {Use Case 2} \\
+  TODO
 \end{enumerate}
 
 \clearpage
 
 \section{Discussion} 
-
+TODO
 Write one or more paragraph(s) to describe any difficulty and experience you had. No less than 300 words. (e.g., communication difficulties in team, any non-technical difficulties, things to improve, and etc.)
 
 \end{multicols*}
