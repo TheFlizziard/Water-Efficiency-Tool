@@ -30,6 +30,7 @@ class MyApp extends StatelessWidget {
   static const String _title = 'Water Efficiency Tool';
   static const String name = '';
   static const String address = '';
+  static const String volumeMetric = 'Liter';
   static bool remoteStatus = false;
 
   @override

@@ -1,14 +1,7 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:custom_switch/custom_switch.dart';
-import 'package:syncfusion_flutter_charts/charts.dart';
-import 'package:syncfusion_flutter_charts/sparkcharts.dart';
 
-import 'TestWidget.dart';
-import 'home_page.dart';
 import 'line_chart_widget.dart';
-import 'main.dart';
 import 'my_api.dart';
 
 class ChartManager extends StatefulWidget {
@@ -19,36 +12,114 @@ class ChartManager extends StatefulWidget {
 }
 
 class _ChartManagerState extends State<ChartManager> {
-  late var data;
+  late var dataChart;
+  late var dataListTile;
+  late var dataOne;
+  late var appliancesName;
 
   @override
   void initState() {
     super.initState();
-    data = CallApi().getData('getall');
+    dataChart = CallApi().getData('getall');
+    dataListTile = CallApi().getData('getall');
+    dataOne = CallApi().getOne('getone');
+    appliancesName = CallApi().getAppliancesName('getappliances');
   }
 
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        child: FutureBuilder<dynamic>(
-          future: data,
-          builder: (context, snapshot) {
-            if (snapshot.hasData) {
-              print(snapshot);
-              return LineChartWidget(d: snapshot.data);
-            } else if (snapshot.hasError) {
-              return Text("${snapshot.error}");
-            }
-            return const CircularProgressIndicator();
-          },
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 0.0),
+                child: FutureBuilder<dynamic>(
+                  future: dataChart,
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      print("DATAAAAAAAAAAAAAAAAAAAAA");
+                      print(snapshot.data);
+                      LineChartWidget chart = LineChartWidget(d: snapshot.data);
+                      print('Print d in chart:');
+                      print(chart.d);
+                      return chart;
+                    } else if (snapshot.hasError) {
+                      return Text("${snapshot.error}");
+                    }
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  },
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 50.0),
+                child: FutureBuilder<dynamic>(
+                  future: dataListTile,
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      print(snapshot.data);
+                      List<String> appliancesNameList = snapshot.data.keys
+                          .map<String>((e) => e.toString())
+                          .toList();
+                      return ListView.separated(
+                        scrollDirection: Axis.vertical,
+                        shrinkWrap: true,
+                        padding: const EdgeInsets.all(8),
+                        itemCount: appliancesNameList.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return ListTile(
+                            leading: ThumbnailsManager(appliancesNameList[index]),//Image.asset("./asset/images/hanyang.png"),
+                            title: Text(appliancesNameList[index]),
+                            subtitle: Text("More information about the ${appliancesNameList[index]}"),
+                            onTap: () =>setState(() {
+                              String id = snapshot.data[appliancesNameList[index]]["_id"].toString();
+                              //var x = snapshot.data[appliancesNameList[index]]['measurementsTotal'].toString();
+                              dataChart = CallApi().getOne(id);
+                            }),
+                            trailing: Text(snapshot.data[appliancesNameList[index]]["measurementsTotal"].toString() + "L used")
+                          );
+                        },
+                        separatorBuilder: (BuildContext context, int index) =>
+                            const Divider(),
+                      );
+                    } else if (snapshot.hasError) {
+                      return Text("${snapshot.error}");
+                    }
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  },
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
   }
 }
 
-
-
+ThumbnailsManager(var applianceType) {
+  switch(applianceType) {
+    case "Shower":{
+        return Icon(Icons.question_mark);
+      }
+      break;
+    case "Dishwasher":{
+      return Icon(Icons.question_mark);//Image.asset("./asset/images/DishWasher.png");
+    }
+    break;
+    case "Kitchen Sink":{
+      return Icon(Icons.question_mark);//Image.asset("./asset/images/KitchenSink.png");
+    }
+    break;
+    default:{
+      return Icon(Icons.question_mark);
+    }
+  }
+}
 
 /*
         body: Column(children: [

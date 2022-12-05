@@ -8,7 +8,19 @@ class CallApi {
   final client = http.Client();
 
   getData(String endpoint) async {
-    var response = await http.get(Uri.parse("http://172.16.75.170:3000/api/getall"));
+    var response = await http.get(Uri.parse("http://10.0.2.2:3000/api/getall"));
+    return jsonDecode(response.body);
+  }
+  getConsumption(String endpoint) async {
+    var response = await http.get(Uri.parse("http://10.0.2.2:3000/api/getConsumption"));
+    return jsonDecode(response.body);
+  }
+  getOne(String endpoint) async {
+    var response = await http.get(Uri.parse("http://10.0.2.2:3000/api/getOne/$endpoint"));
+    return jsonDecode(response.body);
+  }
+  getAppliancesName(String endpoint) async {
+    var response = await http.get(Uri.parse("http://10.0.2.2:3000/api/getAppliances"));
     return jsonDecode(response.body);
   }
 }

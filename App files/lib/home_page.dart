@@ -23,7 +23,7 @@ class _HomePage extends State<HomePage> {
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static final List<Widget> _widgetOptions = <Widget>[
     Scaffold(
-      body: Home(),
+      body: Home(duration: Duration(seconds:3)),
     ),
     Scaffold(
       body: ChartManager(),
