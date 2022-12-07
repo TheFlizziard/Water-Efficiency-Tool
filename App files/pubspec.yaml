@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   custom_switch: ^0.0.1
   syncfusion_flutter_charts: ^20.3.57
+
   provider: ^6.0.4
   firebase_auth: ^4.1.4
   firebase_core: ^2.3.0

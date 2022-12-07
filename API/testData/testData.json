@@ -1,54 +1,321 @@
 [
-    {
-        "name":"Dishwasher",
-        "description": "A Dishwasher for the house.",
-        "measurements": [
-            {
-                "date": "Tue, 19 Aug 1975 23:15:30 GMT",
-                "amount" : 10.4
-            },
-            {
-                "date": "Tue, 20 Aug 1975 23:15:30 GMT",
-                "amount" : 12.4
-            },
-            {
-                "date": "Tue, 21 Aug 1975 23:15:30 GMT",
-                "amount" : 134.2
-            }
-        ]
-    },
-    {
-        "name":"Shower",
-        "measurements": [
-            {
-                "date": "Tue, 19 Aug 1975 23:15:30 GMT",
-                "amount" : 40.4
-            },
-            {
-                "date": "Tue, 20 Aug 1975 23:15:30 GMT",
-                "amount" : 63.12
-            },
-            {
-                "date": "Tue, 21 Aug 1975 23:15:30 GMT",
-                "amount" : 201.3
-            }
-        ]
-    },
-    {
-        "name":"Kitchen Sink",
-        "measurements": [
-            {
-                "date": "Tue, 19 Aug 1975 23:15:30 GMT",
-                "amount" : 10.2
-            },
-            {
-                "date": "Tue, 20 Aug 1975 23:15:30 GMT",
-                "amount" : 83.1
-            },
-            {
-                "date": "Tue, 21 Aug 1975 23:15:30 GMT",
-                "amount" : 49.2
-            }
-        ]
-    }
+  {
+    "name": "Dishwasher",
+    "description": "A Dishwasher for the house.",
+    "measurements": [
+      {
+        "date": "Tue, 19 Jan 2022 23:15:30 GMT",
+        "amount": 828.5
+      },
+      {
+        "date": "Tue, 19 Feb 2022 23:15:30 GMT",
+        "amount": 809.6
+      },
+      {
+        "date": "Tue, 20 Mar 2022 23:15:30 GMT",
+        "amount": 803.6
+      },
+      {
+        "date": "Tue, 21 Apr 2022 23:15:30 GMT",
+        "amount": 792.1
+      },
+      {
+        "date": "Tue, 21 May 2022 23:15:30 GMT",
+        "amount": 809.2
+      },
+      {
+        "date": "Tue, 21 Jun 2022 23:15:30 GMT",
+        "amount": 798.0
+      },
+      {
+        "date": "Tue, 21 Jul 2022 23:15:30 GMT",
+        "amount": 378.2
+      },
+      {
+        "date": "Tue, 21 Aug 2022 23:15:30 GMT",
+        "amount": 329.5
+      },
+      {
+        "date": "Tue, 21 Sep 2022 23:15:30 GMT",
+        "amount": 795.7
+      },
+      {
+        "date": "Tue, 21 Oct 2022 23:15:30 GMT",
+        "amount": 928.2
+      },
+      {
+        "date": "Tue, 21 Nov 2022 23:15:30 GMT",
+        "amount": 1045.3
+      },
+      {
+        "date": "Tue, 6 Dec 2022 23:15:30 GMT",
+        "amount": 277.9
+      }
+    ]
+  },
+  {
+    "name": "Shower",
+    "measurements": [
+      {
+        "date": "Tue, 19 Jan 2022 23:15:30 GMT",
+        "amount": 2504.5
+      },
+      {
+        "date": "Tue, 19 Feb 2022 23:15:30 GMT",
+        "amount": 2438.3
+      },
+      {
+        "date": "Tue, 20 Mar 2022 23:15:30 GMT",
+        "amount": 2289.9
+      },
+      {
+        "date": "Tue, 21 Apr 2022 23:15:30 GMT",
+        "amount": 2278.4
+      },
+      {
+        "date": "Tue, 21 May 2022 23:15:30 GMT",
+        "amount": 2023.1
+      },
+      {
+        "date": "Tue, 21 Jun 2022 23:15:30 GMT",
+        "amount": 2115.3
+      },
+      {
+        "date": "Tue, 21 Jul 2022 23:15:30 GMT",
+        "amount": 1453.8
+      },
+      {
+        "date": "Tue, 21 Aug 2022 23:15:30 GMT",
+        "amount": 1234.5
+      },
+      {
+        "date": "Tue, 21 Sep 2022 23:15:30 GMT",
+        "amount": 2556.7
+      },
+      {
+        "date": "Tue, 21 Oct 2022 23:15:30 GMT",
+        "amount": 2290.3
+      },
+      {
+        "date": "Tue, 21 Nov 2022 23:15:30 GMT",
+        "amount": 2650.4
+      },
+      {
+        "date": "Tue, 6 Dec 2022 23:15:30 GMT",
+        "amount": 921.5
+      }
+    ]
+  },
+  {
+    "name": "Bathroom Sink",
+    "measurements": [
+      {
+        "date": "Tue, 19 Jan 2022 23:15:30 GMT",
+        "amount": 1910.3
+      },
+      {
+        "date": "Tue, 19 Feb 2022 23:15:30 GMT",
+        "amount": 2002.4
+      },
+      {
+        "date": "Tue, 20 Mar 2022 23:15:30 GMT",
+        "amount": 1974.9
+      },
+      {
+        "date": "Tue, 21 Apr 2022 23:15:30 GMT",
+        "amount": 1989.7
+      },
+      {
+        "date": "Tue, 21 May 2022 23:15:30 GMT",
+        "amount": 2000.9
+      },
+      {
+        "date": "Tue, 21 Jun 2022 23:15:30 GMT",
+        "amount": 1920.3
+      },
+      {
+        "date": "Tue, 21 Jul 2022 23:15:30 GMT",
+        "amount": 1086.2
+      },
+      {
+        "date": "Tue, 21 Aug 2022 23:15:30 GMT",
+        "amount": 912.1
+      },
+      {
+        "date": "Tue, 21 Sep 2022 23:15:30 GMT",
+        "amount": 1995.7
+      },
+      {
+        "date": "Tue, 21 Oct 2022 23:15:30 GMT",
+        "amount": 2008.3
+      },
+      {
+        "date": "Tue, 21 Nov 2022 23:15:30 GMT",
+        "amount": 2410.5
+      },
+      {
+        "date": "Tue, 6 Dec 2022 23:15:30 GMT",
+        "amount": 674.5
+      }
+    ]
+  },
+  {
+    "name": "Washing Machine",
+    "measurements": [
+      {
+        "date": "Tue, 19 Jan 2022 23:15:30 GMT",
+        "amount": 2993.3
+      },
+      {
+        "date": "Tue, 19 Feb 2022 23:15:30 GMT",
+        "amount": 2925.4
+      },
+      {
+        "date": "Tue, 20 Mar 2022 23:15:30 GMT",
+        "amount": 2888.9
+      },
+      {
+        "date": "Tue, 21 Apr 2022 23:15:30 GMT",
+        "amount": 2856.7
+      },
+      {
+        "date": "Tue, 21 May 2022 23:15:30 GMT",
+        "amount": 2876.9
+      },
+      {
+        "date": "Tue, 21 Jun 2022 23:15:30 GMT",
+        "amount": 2845.8
+      },
+      {
+        "date": "Tue, 21 Jul 2022 23:15:30 GMT",
+        "amount": 1534.2
+      },
+      {
+        "date": "Tue, 21 Aug 2022 23:15:30 GMT",
+        "amount": 1389.1
+      },
+      {
+        "date": "Tue, 21 Sep 2022 23:15:30 GMT",
+        "amount": 2890.7
+      },
+      {
+        "date": "Tue, 21 Oct 2022 23:15:30 GMT",
+        "amount": 3055.3
+      },
+      {
+        "date": "Tue, 21 Nov 2022 23:15:30 GMT",
+        "amount": 3428.5
+      },
+      {
+        "date": "Tue, 6 Dec 2022 23:15:30 GMT",
+        "amount": 945.1
+      }
+    ]
+  },
+  {
+    "name": "Toilet",
+    "measurements": [
+      {
+        "date": "Tue, 19 Jan 2022 23:15:30 GMT",
+        "amount": 1025.3
+      },
+      {
+        "date": "Tue, 19 Feb 2022 23:15:30 GMT",
+        "amount": 987.4
+      },
+      {
+        "date": "Tue, 20 Mar 2022 23:15:30 GMT",
+        "amount": 959.9
+      },
+      {
+        "date": "Tue, 21 Apr 2022 23:15:30 GMT",
+        "amount": 912.7
+      },
+      {
+        "date": "Tue, 21 May 2022 23:15:30 GMT",
+        "amount": 930.9
+      },
+      {
+        "date": "Tue, 21 Jun 2022 23:15:30 GMT",
+        "amount": 920.0
+      },
+      {
+        "date": "Tue, 21 Jul 2022 23:15:30 GMT",
+        "amount": 435.2
+      },
+      {
+        "date": "Tue, 21 Aug 2022 23:15:30 GMT",
+        "amount": 398.1
+      },
+      {
+        "date": "Tue, 21 Sep 2022 23:15:30 GMT",
+        "amount": 923.7
+      },
+      {
+        "date": "Tue, 21 Oct 2022 23:15:30 GMT",
+        "amount": 1298.3
+      },
+      {
+        "date": "Tue, 21 Nov 2022 23:15:30 GMT",
+        "amount": 1539.5
+      },
+      {
+        "date": "Tue, 6 Dec 2022 23:15:30 GMT",
+        "amount": 376.5
+      }
+    ]
+  },
+  {
+    "name": "Kitchen Sink",
+    "measurements": [
+      {
+        "date": "Tue, 19 Jan 2022 23:15:30 GMT",
+        "amount": 2694.5
+      },
+      {
+        "date": "Tue, 19 Feb 2022 23:15:30 GMT",
+        "amount": 2638.3
+      },
+      {
+        "date": "Tue, 20 Mar 2022 23:15:30 GMT",
+        "amount": 2589.9
+      },
+      {
+        "date": "Tue, 21 Apr 2022 23:15:30 GMT",
+        "amount": 2490.4
+      },
+      {
+        "date": "Tue, 21 May 2022 23:15:30 GMT",
+        "amount": 2522.1
+      },
+      {
+        "date": "Tue, 21 Jun 2022 23:15:30 GMT",
+        "amount": 2533.3
+      },
+      {
+        "date": "Tue, 21 Jul 2022 23:15:30 GMT",
+        "amount": 1239.8
+      },
+      {
+        "date": "Tue, 21 Aug 2022 23:15:30 GMT",
+        "amount": 1121.5
+      },
+      {
+        "date": "Tue, 21 Sep 2022 23:15:30 GMT",
+        "amount": 2508.7
+      },
+      {
+        "date": "Tue, 21 Oct 2022 23:15:30 GMT",
+        "amount": 2487.3
+      },
+      {
+        "date": "Tue, 21 Nov 2022 23:15:30 GMT",
+        "amount": 3295.4
+      },
+      {
+        "date": "Tue, 6 Dec 2022 23:15:30 GMT",
+        "amount": 789.5
+      }
+    ]
+  }
 ]

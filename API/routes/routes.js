@@ -24,7 +24,55 @@ router.post('/post', async (req, res) => {
 router.get('/getAll', async (req, res) => {
     try{
         const data = await Model.find();
-        res.json(data)
+        // for each appliance, find the sum of the measurements by month
+        const monthlySumByAppliance = {};
+        data.map(appliance => {
+            monthlySumByAppliance[appliance.name] = {};
+            monthlySumByAppliance[appliance.name]['_id'] = appliance._id
+            let sum = [0,0,0,0,0,0,0,0,0,0,0,0];
+            for (let j = 0; j < appliance.measurements.length; j++) {
+                sum[appliance.measurements[j].date.getMonth()] += appliance.measurements[j].amount;
+            }
+            monthlySumByAppliance[appliance.name]['measurementsByMonth'] = sum;
+            monthlySumByAppliance[appliance.name]['measurementsTotal'] = sum.reduce((a, b) => a + b, 0);
+        }
+        );
+        res.status(200).json(monthlySumByAppliance)
+    }
+    catch(error){
+        res.status(500).json({message: error.message})
+    }
+})
+
+//Get Consumption Method
+router.get('/getConsumption', async (req, res) => {
+    try{
+        const data = await Model.find();
+        // calculate the sum of the measurements by month and store it in a list
+        let sum = [0,0,0,0,0,0,0,0,0,0,0,0];
+        for (let i = 0; i < data.length; i++) {
+            for (let j = 0; j < data[i].measurements.length; j++) {
+                sum[data[i].measurements[j].date.getMonth()] += data[i].measurements[j].amount;
+            }
+        }
+        res.status(200).json(sum)
+    }
+    catch(error){
+        res.status(500).json({message: error.message})
+    }
+})
+
+//Get appliances name Method
+router.get('/getAppliances', async (req, res) => {
+    try{
+        const data = await Model.find();
+        console.log(data);
+        const appliances = [];
+        data.map(appliance => {
+            appliances.push(appliance.name);
+        }
+        );
+        res.status(200).json(appliances)
     }
     catch(error){
         res.status(500).json({message: error.message})
@@ -35,12 +83,45 @@ router.get('/getAll', async (req, res) => {
 router.get('/getOne/:id', async (req, res) => {
     try{
         const data = await Model.findById(req.params.id);
-        res.json(data)
+        // calculate the total consumption of the appliance, as well as the total consumption per month
+        let total = 0;
+        let sum = [0,0,0,0,0,0,0,0,0,0,0,0];
+        for (let j = 0; j < data.measurements.length; j++) {
+            total += data.measurements[j].amount;
+            sum[data.measurements[j].date.getMonth()] += data.measurements[j].amount;
+        }
+        let newData = {
+            '_id': data._id,
+            'name': data.name,
+            'measurementsByMonth': sum,
+            'measurementsTotal': total
+        }
+        res.status(200).json(newData)
     }
     catch(error){
         res.status(500).json({message: error.message})
     }
 })
+
+//Write a method that returns the total consumption of all appliances of the current month
+router.get('/getCurrentConsumption', async (req, res) => {
+    try{
+        const data = await Model.find();
+        // calculate the sum of the measurements by month and store it in a list
+        let sum = [0,0,0,0,0,0,0,0,0,0,0,0];
+        for (let i = 0; i < data.length; i++) {
+            for (let j = 0; j < data[i].measurements.length; j++) {
+                sum[data[i].measurements[j].date.getMonth()] += data[i].measurements[j].amount;
+            }
+        }
+        res.status(200).json(sum[new Date().getMonth()])
+    }
+    catch(error){
+        res.status(500).json({message: error.message})
+    }
+})
+
+
 
 //Delete all Method
 router.delete('/deleteAll', async (req, res) => {

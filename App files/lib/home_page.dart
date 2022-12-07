@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import './settings.dart';
 import './home.dart';
 import './notifications_page.dart';
-import './notifications.dart';
 import './remote_page.dart';
 import './consumption_page.dart';
 
@@ -22,9 +21,8 @@ class _HomePage extends State<HomePage> {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static final List<Widget> _widgetOptions = <Widget>[
-    const Text(
-      'Index 0: Home',
-      style: optionStyle,
+    Scaffold(
+      body: Home(duration: Duration(seconds:3)),
     ),
     Scaffold(
       body: ChartManager(),

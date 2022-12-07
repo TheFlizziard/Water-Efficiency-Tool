@@ -2,7 +2,7 @@
 
 ## Introduction
 
-comming soon...
+coming soon...
 
 ## Documentation
 
