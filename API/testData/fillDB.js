@@ -6,14 +6,14 @@ const data = require("./testData.json")
 const api = process.env.API_URL;
 
 request.delete({
-    url: `${api}/deleteAll` ,
+    url: `http://localhost:3000/api/deleteAll` ,
   }, function(error, response, body){
     if (error) console.log(error)
     console.log(body)
 
     for(entry of data){
         request.post({
-            url: `${api}/post` ,
+            url: `http://localhost:3000/api/post` ,
             body: entry,
             json: true
           }, function(error, response, body){
