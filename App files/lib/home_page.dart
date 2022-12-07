@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import './settings.dart';
 import './home.dart';
 import './notifications_page.dart';
-import './notifications.dart';
 import './remote_page.dart';
 import './consumption_page.dart';
 

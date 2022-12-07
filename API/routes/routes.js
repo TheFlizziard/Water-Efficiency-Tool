@@ -103,6 +103,26 @@ router.get('/getOne/:id', async (req, res) => {
     }
 })
 
+//Write a method that returns the total consumption of all appliances of the current month
+router.get('/getCurrentConsumption', async (req, res) => {
+    try{
+        const data = await Model.find();
+        // calculate the sum of the measurements by month and store it in a list
+        let sum = [0,0,0,0,0,0,0,0,0,0,0,0];
+        for (let i = 0; i < data.length; i++) {
+            for (let j = 0; j < data[i].measurements.length; j++) {
+                sum[data[i].measurements[j].date.getMonth()] += data[i].measurements[j].amount;
+            }
+        }
+        res.status(200).json(sum[new Date().getMonth()])
+    }
+    catch(error){
+        res.status(500).json({message: error.message})
+    }
+})
+
+
+
 //Delete all Method
 router.delete('/deleteAll', async (req, res) => {
     try{

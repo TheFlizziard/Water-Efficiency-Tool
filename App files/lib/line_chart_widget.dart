@@ -13,13 +13,6 @@ class LineChartWidget extends StatefulWidget {
 }
 
 class _LineChartWidgetState extends State<LineChartWidget> {
-  //final d;
-/*
-  _LineChartWidgetState({this.d}) {
-    print('_LineChart');
-    print(d.toString());
-  }
-  */
 
   @override
   void initState() {

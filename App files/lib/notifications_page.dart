@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import './notifications.dart';
 
 class NotificationsManager extends StatelessWidget {
   final List<String> _notifications_list = ['You failed to reach your monthly goal!','You used more than your actual consumption limit','You used 80% of you water consumption limit','You successfully reached your monthly goal!','You used 80% of you water consumption limit','You successfully reached your monthly goal!','Leakage detection alert!','Monthly goal successfully changed'];
@@ -17,7 +16,7 @@ class NotificationsManager extends StatelessWidget {
             padding: const EdgeInsets.all(8),
             itemCount: _notifications_list.length,
             itemBuilder: (BuildContext context, int index) => ListTile(
-                  //leading: ThumbnailsManager(_notifications_list[index]),
+                  leading: ThumbnailsManager(_notifications_list[index]),
                   //Image.asset("./asset/images/hanyang.png"),
                   title: Text(_notifications_list[index]),
                   subtitle: Text(_notifications_details[index]),
@@ -35,5 +34,18 @@ class NotificationsManager extends StatelessWidget {
           ),
       ),
     );
+  }
+}
+ThumbnailsManager(String notificationType) {
+  switch(notificationType) {
+    case "Leakage detection alert!":{
+      return Icon(Icons.notification_important, color: Colors.red);
+    }
+    case "You failed to reach your monthly goal!":{
+      return Icon(Icons.notifications);//Image.asset("./asset/images/DishWasher.png");
+    }
+    default:{
+      return Icon(Icons.notifications_none);
+    }
   }
 }
