@@ -8,7 +8,6 @@ import './settings.dart';
 import './home.dart';
 import './home_page.dart';
 import './notifications_page.dart';
-import './notifications.dart';
 import './sign_up_page.dart';
 import './my_api.dart';
 

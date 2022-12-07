@@ -23,4 +23,8 @@ class CallApi {
     var response = await http.get(Uri.parse("http://10.0.2.2:3000/api/getAppliances"));
     return jsonDecode(response.body);
   }
+  getCurrentConsumption() async {
+    var response = await http.get(Uri.parse("http://10.0.2.2:3000/api/getCurrentConsumption"));
+    return jsonDecode(response.body);
+  }
 }
