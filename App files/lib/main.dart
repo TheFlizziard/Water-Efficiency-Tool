@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
+import 'package:water_efficiency_tool/forgot_pw_page.dart';
 
 import './settings.dart';
 import './home.dart';
@@ -10,6 +11,7 @@ import './notifications.dart';
 import './sign_up_page.dart';
 import 'net/flutterfire.dart';
 import 'net/firebase_options.dart';
+import 'forgot_pw_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -97,7 +99,10 @@ class _LoginManagerState extends State<LoginManager> {
             ),
             TextButton(
               onPressed: () {
-                //TODO FORGOT PASSWORD SCREEN GOES HERE
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => ForgotPasswordPage()));
               },
               child: const Text(
                 'Forgot Password',

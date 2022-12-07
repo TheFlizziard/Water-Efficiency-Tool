@@ -8,7 +8,8 @@ Future signIn(String email, String password) async {
         .signInWithEmailAndPassword(email: email, password: password);
     return true;
   } on FirebaseAuthException catch (e) {
-    Fluttertoast.showToast(msg: e.toString(), gravity: ToastGravity.TOP);
+    Fluttertoast.showToast(
+        msg: e.message.toString(), gravity: ToastGravity.TOP);
   }
 }
 
@@ -18,6 +19,7 @@ Future register(String email, String password) async {
         .createUserWithEmailAndPassword(email: email, password: password);
     return true;
   } on FirebaseAuthException catch (e) {
-    Fluttertoast.showToast(msg: e.toString(), gravity: ToastGravity.TOP);
+    Fluttertoast.showToast(
+        msg: e.message.toString(), gravity: ToastGravity.TOP);
   }
 }
