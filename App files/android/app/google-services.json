@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "740619589260",
+    "project_id": "signin-flutter-b60ba",
+    "storage_bucket": "signin-flutter-b60ba.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:740619589260:android:a11f2b853f0ced69950da9",
+        "android_client_info": {
+          "package_name": "com.example.water_efficiency_tool"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "740619589260-p61s8to756l2s5nrhl46cbe4a2qghllm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPhffj9c4HeFRZngcJ__xZKIUwom8tDtw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "740619589260-p61s8to756l2s5nrhl46cbe4a2qghllm.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "740619589260-1m4avmrhbsbrfo1gep8e0p2o37l17cn3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.waterEfficiencyTool"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

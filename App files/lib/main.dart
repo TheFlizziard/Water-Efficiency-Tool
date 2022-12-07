@@ -1,3 +1,6 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:water_efficiency_tool/forgot_pw_page.dart';
+
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -9,14 +12,21 @@ import './home.dart';
 import './home_page.dart';
 import './notifications_page.dart';
 import './sign_up_page.dart';
+import 'net/flutterfire.dart';
+import 'net/firebase_options.dart';
+import 'forgot_pw_page.dart';
 import './my_api.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  runApp(const MyApp());
+
 
 const mongo_url="mongodb+srv://nikipuk:G0IG2U28BA9XPHxE@cluster0.htbrtpo.mongodb.net/test";
 const collection_name="appliances";
-
-Future<void> main() async {
-  runApp(MyApp());
-}
 
 void test() async {
   var api = await CallApi().getData('getall');
@@ -34,7 +44,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: _title,
       home: LoginManager(),
@@ -43,17 +53,22 @@ class MyApp extends StatelessWidget {
 }
 
 class LoginManager extends StatefulWidget {
+  const LoginManager({Key? key}) : super(key: key);
+
   @override
   _LoginManagerState createState() => _LoginManagerState();
 }
 
 class _LoginManagerState extends State<LoginManager> {
+  final TextEditingController _emailField = TextEditingController();
+  final TextEditingController _passwordField = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-          title: Text("Login Page"),
+          title: const Text("Login Page"),
           automaticallyImplyLeading: false,
         ),
         body: SingleChildScrollView(
@@ -70,23 +85,26 @@ class _LoginManagerState extends State<LoginManager> {
                     child: Image.asset('./asset/images/logo_wet.png')),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(left:15.0,right: 15.0,top:15.0,bottom: 0),
+            Padding(
+              padding: const EdgeInsets.only(
+                  left: 15.0, right: 15.0, top: 15.0, bottom: 0),
               //padding: EdgeInsets.symmetric(horizontal: 15),
               child: TextField(
-                decoration: InputDecoration(
+                controller: _emailField,
+                decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Email',
                     hintText: 'Enter valid email id as abc@gmail.com'),
               ),
             ),
-            const Padding(
-              padding:
-                  EdgeInsets.only(left: 15.0, right: 15.0, top: 15, bottom: 0),
+            Padding(
+              padding: const EdgeInsets.only(
+                  left: 15.0, right: 15.0, top: 15, bottom: 0),
               //padding: EdgeInsets.symmetric(horizontal: 15),
               child: TextField(
                 obscureText: true,
-                decoration: InputDecoration(
+                controller: _passwordField,
+                decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Password',
                     hintText: 'Enter secure password'),
@@ -94,7 +112,10 @@ class _LoginManagerState extends State<LoginManager> {
             ),
             TextButton(
               onPressed: () {
-                test();
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => ForgotPasswordPage()));
               },
               child: const Text(
                 'Forgot Password',
@@ -107,9 +128,15 @@ class _LoginManagerState extends State<LoginManager> {
               decoration: BoxDecoration(
                   color: Colors.blue, borderRadius: BorderRadius.circular(20)),
               child: TextButton(
-                onPressed: () {
-                  Navigator.push(
-                      context, MaterialPageRoute(builder: (_) => HomePage()));
+                onPressed: () async {
+                  bool shouldNavigate =
+                      await signIn(_emailField.text, _passwordField.text);
+                  if (shouldNavigate) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const HomePage()),
+                    ); // Navigator
+                  }
                 },
                 child: const Text(
                   'Login',
