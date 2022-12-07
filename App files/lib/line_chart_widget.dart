@@ -65,7 +65,7 @@ List<ChartData> MonthlyConsumption(var data) {
         monthlySum += data[keys[j]]["measurementsByMonth"][i];
       }
     }
-    ChartData point = ChartData(i.toString(), monthlySum);
+    ChartData point = ChartData((i+1).toString(), monthlySum);
     monthlyConsumption.add(point);
   }
   return monthlyConsumption;

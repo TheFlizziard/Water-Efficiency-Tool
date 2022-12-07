@@ -41,11 +41,11 @@
       },
       {
         "date": "Tue, 21 Oct 2022 23:15:30 GMT",
-        "amount": 788.2
+        "amount": 928.2
       },
       {
         "date": "Tue, 21 Nov 2022 23:15:30 GMT",
-        "amount": 845.3
+        "amount": 1045.3
       },
       {
         "date": "Tue, 6 Dec 2022 23:15:30 GMT",
@@ -74,7 +74,7 @@
       },
       {
         "date": "Tue, 21 May 2022 23:15:30 GMT",
-        "amount": 2223.1
+        "amount": 2023.1
       },
       {
         "date": "Tue, 21 Jun 2022 23:15:30 GMT",
@@ -90,7 +90,7 @@
       },
       {
         "date": "Tue, 21 Sep 2022 23:15:30 GMT",
-        "amount": 2256.7
+        "amount": 2556.7
       },
       {
         "date": "Tue, 21 Oct 2022 23:15:30 GMT",
@@ -98,7 +98,7 @@
       },
       {
         "date": "Tue, 21 Nov 2022 23:15:30 GMT",
-        "amount": 2450.4
+        "amount": 2650.4
       },
       {
         "date": "Tue, 6 Dec 2022 23:15:30 GMT",
@@ -111,7 +111,7 @@
     "measurements": [
       {
         "date": "Tue, 19 Jan 2022 23:15:30 GMT",
-        "amount": 2190.3
+        "amount": 1910.3
       },
       {
         "date": "Tue, 19 Feb 2022 23:15:30 GMT",
@@ -131,7 +131,7 @@
       },
       {
         "date": "Tue, 21 Jun 2022 23:15:30 GMT",
-        "amount": 1920.0
+        "amount": 1920.3
       },
       {
         "date": "Tue, 21 Jul 2022 23:15:30 GMT",
@@ -151,7 +151,7 @@
       },
       {
         "date": "Tue, 21 Nov 2022 23:15:30 GMT",
-        "amount": 2210.5
+        "amount": 2410.5
       },
       {
         "date": "Tue, 6 Dec 2022 23:15:30 GMT",
@@ -184,7 +184,7 @@
       },
       {
         "date": "Tue, 21 Jun 2022 23:15:30 GMT",
-        "amount": 2845.0
+        "amount": 2845.8
       },
       {
         "date": "Tue, 21 Jul 2022 23:15:30 GMT",
@@ -200,11 +200,11 @@
       },
       {
         "date": "Tue, 21 Oct 2022 23:15:30 GMT",
-        "amount": 2855.3
+        "amount": 3055.3
       },
       {
         "date": "Tue, 21 Nov 2022 23:15:30 GMT",
-        "amount": 3278.5
+        "amount": 3428.5
       },
       {
         "date": "Tue, 6 Dec 2022 23:15:30 GMT",
@@ -253,7 +253,7 @@
       },
       {
         "date": "Tue, 21 Oct 2022 23:15:30 GMT",
-        "amount": 898.3
+        "amount": 1298.3
       },
       {
         "date": "Tue, 21 Nov 2022 23:15:30 GMT",
@@ -310,7 +310,7 @@
       },
       {
         "date": "Tue, 21 Nov 2022 23:15:30 GMT",
-        "amount": 2995.4
+        "amount": 3295.4
       },
       {
         "date": "Tue, 6 Dec 2022 23:15:30 GMT",
