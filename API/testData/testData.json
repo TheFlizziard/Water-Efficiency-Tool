@@ -4,6 +4,10 @@
         "description": "A Dishwasher for the house.",
         "measurements": [
             {
+                "date": "Tue, 19 Oct 1986 23:15:30 GMT",
+                "amount" : 10.4
+            },
+            {
                 "date": "Tue, 19 Aug 1975 23:15:30 GMT",
                 "amount" : 10.4
             },

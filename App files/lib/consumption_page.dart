@@ -1,10 +1,8 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:custom_switch/custom_switch.dart';
-import 'package:syncfusion_flutter_charts/charts.dart';
-import 'package:syncfusion_flutter_charts/sparkcharts.dart';
 
-import 'home_page.dart';
-import 'main.dart';
+import 'line_chart_widget.dart';
+import 'my_api.dart';
 
 class ChartManager extends StatefulWidget {
   const ChartManager({super.key});
@@ -14,37 +12,139 @@ class ChartManager extends StatefulWidget {
 }
 
 class _ChartManagerState extends State<ChartManager> {
-  List<_ConsumptionData> data = [
-    _ConsumptionData('Jan', 35),
-    _ConsumptionData('Feb', 28),
-    _ConsumptionData('Mar', 34),
-    _ConsumptionData('Apr', 32),
-    _ConsumptionData('May', 40)
-  ];
+  late var dataChart;
+  late var dataListTile;
+  late var dataOne;
+  late var appliancesName;
+
   @override
+  void initState() {
+    super.initState();
+    dataChart = CallApi().getData('getall');
+    dataListTile = CallApi().getData('getall');
+    dataOne = CallApi().getOne('getone');
+    appliancesName = CallApi().getAppliancesName('getappliances');
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(children: [
-        //Initialize the chart widget
-        SfCartesianChart(
-            primaryXAxis: CategoryAxis(),
-            // Chart title
-            title: ChartTitle(text: 'Water consumption over the last months'),
-            // Enable legend
-            legend: Legend(isVisible: true),
-            // Enable tooltip
-            tooltipBehavior: TooltipBehavior(enable: true),
-            series: <ChartSeries<_ConsumptionData, String>>[
-              LineSeries<_ConsumptionData, String>(
-                  dataSource: data,
-                  xValueMapper: (_ConsumptionData consumption, _) => consumption.year,
-                  yValueMapper: (_ConsumptionData consumption, _) => consumption.consumption,
+      body: Container(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 0.0),
+                child: FutureBuilder<dynamic>(
+                  future: dataChart,
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      print("DATAAAAAAAAAAAAAAAAAAAAA");
+                      print(snapshot.data);
+                      LineChartWidget chart = LineChartWidget(d: snapshot.data);
+                      print('Print d in chart:');
+                      print(chart.d);
+                      return chart;
+                    } else if (snapshot.hasError) {
+                      return Text("${snapshot.error}");
+                    }
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  },
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 50.0),
+                child: FutureBuilder<dynamic>(
+                  future: dataListTile,
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      print(snapshot.data);
+                      List<String> appliancesNameList = snapshot.data.keys
+                          .map<String>((e) => e.toString())
+                          .toList();
+                      return ListView.separated(
+                        scrollDirection: Axis.vertical,
+                        shrinkWrap: true,
+                        padding: const EdgeInsets.all(8),
+                        itemCount: appliancesNameList.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return ListTile(
+                            leading: ThumbnailsManager(appliancesNameList[index]),//Image.asset("./asset/images/hanyang.png"),
+                            title: Text(appliancesNameList[index]),
+                            subtitle: Text("More information about the ${appliancesNameList[index]}"),
+                            onTap: () =>setState(() {
+                              String id = snapshot.data[appliancesNameList[index]]["_id"].toString();
+                              //var x = snapshot.data[appliancesNameList[index]]['measurementsTotal'].toString();
+                              dataChart = CallApi().getOne(id);
+                            }),
+                            trailing: Text(snapshot.data[appliancesNameList[index]]["measurementsTotal"].toString() + "L used")
+                          );
+                        },
+                        separatorBuilder: (BuildContext context, int index) =>
+                            const Divider(),
+                      );
+                    } else if (snapshot.hasError) {
+                      return Text("${snapshot.error}");
+                    }
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  },
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+ThumbnailsManager(var applianceType) {
+  switch(applianceType) {
+    case "Shower":{
+        return Icon(Icons.question_mark);
+      }
+      break;
+    case "Dishwasher":{
+      return Icon(Icons.question_mark);//Image.asset("./asset/images/DishWasher.png");
+    }
+    break;
+    case "Kitchen Sink":{
+      return Icon(Icons.question_mark);//Image.asset("./asset/images/KitchenSink.png");
+    }
+    break;
+    default:{
+      return Icon(Icons.question_mark);
+    }
+  }
+}
+
+/*
+        body: Column(children: [
+          //Initialize the chart widget
+          SfCartesianChart(
+              primaryXAxis: CategoryAxis(),
+              // Chart title
+              title: ChartTitle(text: 'Water consumption over the last months'),
+              // Enable legend
+              legend: Legend(isVisible: true),
+              // Enable tooltip
+              tooltipBehavior: TooltipBehavior(enable: true),
+              series: <ChartSeries<Appliance, String>>[
+                LineSeries<Appliance, String>(
+                  dataSource: appliancesList,
+                  xValueMapper: (Appliance a, _) =>
+                  a.totalConsumption,
+                  yValueMapper: (Appliance a, _) =>
+                  a.totalConsumption,
                   name: 'Consumption',
                   // Enable data label
                   //dataLabelSettings: DataLabelSettings(isVisible: true)
-              )
-            ]),
-        /*Expanded(
+                )
+              ]),
+          /*Expanded(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             //Initialize the spark charts widget
@@ -63,13 +163,24 @@ class _ChartManagerState extends State<ChartManager> {
             ),
           ),
         )*/
-      ])
+        ])
     );
   }
 }
-class _ConsumptionData {
-  _ConsumptionData(this.year, this.consumption);
 
-  final String year;
+class _ConsumptionData {
+  _ConsumptionData(this.date, this.consumption, this.applianceName);
+
+  final String date;
   final double consumption;
+  final String applianceName;
+
+  Future<void> plotUpdate() async {
+    var appliancesName = [];
+    var consumptionDate = [];
+    var consumptionAmount = [];
+  }
 }
+
+
+*/
