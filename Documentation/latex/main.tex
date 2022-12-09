@@ -66,7 +66,7 @@
 \vspace{1cm}
 
 \begin{abstract}
-most home owners have tight schedules or have a busy lifestyle and tend to forget to properly monitor their home. For example, they forget to close a water tap after using it. To check every water tap is closed properly or to make sure you are not using your water recklessly consumes time and requires a family member to be at the house. Therefore, our team is trying to develop an application (app) that monitors the water consumption in real time. The app not only provides real time monitoring but also provides users with consumption history, consumption limits, leakage detection, and consumption forecast. The primary goal of this app is to enable a user to monitor the water usage through a mobile application. This would help people structure their water usage more efficiently and change habits of consumption.
+Most home owners have tight schedules or have a busy lifestyle and tend to forget to properly monitor their home. For example, they forget to close a water tap after using it. To check every water tap is closed properly or to make sure you are not using your water recklessly consumes time and requires a family member to be at the house. Therefore, our team is trying to develop an application (app) that monitors the water consumption in real time. The app not only provides real time monitoring but also provides users with consumption history, consumption limits, leakage detection, and consumption forecast. The primary goal of this app is to enable a user to monitor the water usage through a mobile application. This would help people structure their water usage more efficiently and change habits of consumption.
 \end{abstract}
 
 \clearpage
@@ -425,7 +425,7 @@ Before starting with any development it is important to make it clear what the a
   The overall system Architecture of the WET infrastructure is quite simple.
   Users interract with the system through the app, which is installed on their mobile device. This mobile app represents the entire Front end.
 
-  This app internaly calls the required back end services these services are comprised of the authentication service as well as a service that manages the data produced by the smart appliances.
+  This mobile application internaly calls the required back end services. These services are comprised of the authentication service as well as a service that manages the data produced by the smart appliances.
   With the help of Firebase the app is able to connect directily to its authentication service without the need for any further backend infrastructure.
   The users data is stored in a $MongoDB$ database. To manage its access another facade interface in the form of a Node.js server was created. The Node.js server is manages requests and responses to and from the front end.
 
@@ -463,6 +463,8 @@ Before starting with any development it is important to make it clear what the a
       This documentation is written in $Latex$. The raw $Latex$ code used to generate the pdf document as well as all images that are included in it are stored inside this folder.
     \end{itemize}
   \end{itemize}
+
+  \clearpage
 
   \item {Module 1 (App)} \\
   The frontend is accting is the main interraction interface the users use to interract with the entire application. The mobile application allows the user to see the data genereated by their home smart appliances and all other functional requirements listed.
@@ -550,7 +552,7 @@ For a quick overview of the described use cases and how the user and other actor
 
 \section{Retrospective}
 
-In terms of the amount of requirements that we were able to implement in the given time frame we are also happy with the result. Whenn creating the requirenment definitions at the start of the semester we defined the requirenment for an application that would be a viable product and could be put to use for real customers. Of those requirements we mainly focussed on the most crucial ones.\\
+In terms of the amount of requirements that we were able to implement in the given time frame we are also happy with the result. Whenn creating the requirenment definitions at the start of the semester we defined the requirenment for an application that would be a viable product and could be put to use for real customers. Of those requirements we mainly focused on the most crucial ones.\\
 Those being:
 \begin{itemize}
   \item Register Users
@@ -562,7 +564,7 @@ Those being:
 In the front end application we already created the basic layout for the other defined requirenments and the $Node.js$ API could easily be extened to include new endpoints.
 
 The most improtant thing when doing a group project, especially in a university course setting, is to learn about what it takes for a group project to succede.
-The best way of acheiving this is to look back at what whent well, and more importantly what whent wrong. Learning from mistakes made in the past is the fastest way to improve.\\
+The best way of acheiving this is to look back at what went well, and more importantly what went wrong. Learning from mistakes made in the past is the fastest way to improve.\\
 
 We decided to let each team member write a short text about their own impressions. This helped us better understand how each member of the theam felt and would be a great starting point when trying to improve ones team work abilities.
 
